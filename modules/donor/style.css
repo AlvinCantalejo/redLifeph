@@ -1,0 +1,964 @@
+body{
+	margin: auto;
+	width:auto;
+	height: auto;
+	overflow-x: hidden;
+}
+
+
+
+/*HEADER*/
+
+div.header{
+	background-color:#F5F5F5;
+	height:100px;
+	width: 100%;
+	padding: 13px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	backface-visibility: hidden;
+}
+
+div.header-left {
+	padding-top: 0px;
+	margin-top: 9px;
+}
+
+div.header-right {
+    float: right;
+	padding-top: 0px;
+}
+
+div.header-text-left{
+	 float: left;
+	 margin-top: px;
+}
+
+img.redLifePhLogo{
+	float: left;
+	width: 70px;
+	height: 70px;
+	margin-right: 23px;
+	margin-left: 30px;
+	padding: 5px;
+}
+
+div.PRCCompany{
+	font-weight:lighter;
+	font-family: "Lato";
+	text-transform:uppercase;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+div.redLifePhName{
+	font-family: "Chewy", sans-serif;
+	font-size: 27px;
+	color: #ff1e00;
+}
+
+div.HomeLink {
+	margin-right: 100px;
+}
+
+a.indexPage{
+	font-family: "Lato";
+    font-size: 15px;
+    color: black;
+    font-weight: normal;
+    text-decoration:none;
+}
+	a.indexPage:hover {
+        font-weight: bold;
+		text-decoration: none;
+		color: black;
+    }
+
+/*Dropdown*/
+
+button.dropbtn {
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	background-color:#F5F5F5;
+}
+  
+div.dropdown-myProfile {
+	position: relative;
+	display: inline-block;
+	margin-left: 50px;
+}
+
+div.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	font-size: 15px;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+	text-decoration: none;
+	color: black;
+	
+}
+
+.dropdown-myProfile:hover .dropdown-content {
+	display: block;	
+}
+
+/*BODY CONTENT*/
+
+	/*HOME PAGE*/
+		div.content{
+			background: url(res/donorpage-background.jpeg);
+			background-repeat: no-repeat;
+			width: 100%;
+			height: 630px;
+			background-size: cover;
+			justify-content: center;
+			position: relative;
+			position: -webkit-sticky;
+			z-index: 1;
+		}
+
+		div.color-overlay{
+			width: 100%;
+			height: 100%;
+			background-color: black ;
+			opacity: .4;
+			position: absolute;
+		}
+
+		div.col-sm-7, div.col-sm-5{
+			z-index: 1;
+		}
+
+		div.give{
+			font-family: 'GlacialIndifferenceRegular';
+			color: white;
+			font-size: 80px ;
+			text-align: left;
+			margin-left: 130px;
+			margin-top: 50px;
+			margin-bottom: 0px;
+			padding-bottom: 0px;
+		}
+
+		div.blood{
+			font-family: 'GlacialIndifferenceRegular';
+			color: red;
+			font-size: 150px ;
+			text-align: left;
+			margin-left: 130px;
+			margin-top: 0px;
+			padding-top: 0px;
+		}
+
+		div.description{
+			font-family: 'GlacialIndifferenceRegular';
+			text-align: left;
+			margin-left: 130px;
+			color: white;
+			font-size: 20px;
+			margin-top: 0px;
+		}
+
+		button.appointmentBtn {
+			border: none;
+			font-size: 35px;
+			background-color: #FF0004;
+			width: 468px;
+			height: 60px;
+			margin-top: 450px;
+			margin-right: 130px;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.appointmentBtn a{
+			color: white;
+			text-decoration: none;
+		}
+
+	
+
+		button.appointmentBtn:hover{
+			background-color: #b30205;
+		}
+
+		div.col-sm-5{
+			text-align: center;
+		}
+
+	/*APPOINTMENT SCHEDULE*/
+
+		div.container-fluid{
+			margin-bottom: 70px;
+		}
+
+		h1{
+			font-family: "Glacial Indifference";
+			text-align: center;
+		}
+		
+		#grad1 {
+			background-color: white;
+		}
+
+		#msform {
+			text-align: center;
+			position: relative;
+			margin-top: 20px;
+		}
+
+		#msform fieldset .form-card {
+			background: white;
+			border: 0 none;
+			border-radius: 10px;
+			box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+			padding: 20px 40px 30px 40px;
+			box-sizing: border-box;
+			width: 94%;
+			margin: 0 3% 20px 3%;
+			position: relative
+		}
+
+		#msform fieldset {
+			background: white;
+			border: 0 none;
+			border-radius: 0.5rem;
+			box-sizing: border-box;
+			width: 100%;
+			margin: 0;
+			padding-bottom: 20px;
+			position: relative
+		}
+
+		#msform fieldset:not(:first-of-type) {
+			display: none
+		}
+
+		#msform fieldset .form-card {
+			text-align: left;
+			color: black;
+		}
+
+		#msform input,
+		#msform textarea {
+			padding: 0px 8px 4px 8px;
+			border: none;
+			border-radius: 0px;
+			margin-bottom: 25px;
+			margin-top: 2px;
+			width: 100%;
+			box-sizing: border-box;
+			font-family: montserrat;
+			color: #2C3E50;
+			font-size: 16px;
+			letter-spacing: 1px
+		}
+
+		#msform input:focus,
+		#msform textarea:focus {
+			-moz-box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+			border: none;
+			font-weight: bold;
+			outline-width: 0
+		}
+
+		#msform .action-button {
+			width: 100px;
+			background: skyblue;
+			font-weight: bold;
+			color: white;
+			border: 0 none;
+			border-radius: 0px;
+			cursor: pointer;
+			padding: 10px 5px;
+			margin: 10px 5px
+		}
+
+		#msform .action-button:hover,
+		#msform .action-button:focus {
+			box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+		}
+
+		#msform .action-button-previous {
+			width: 100px;
+			background: #616161;
+			font-weight: bold;
+			color: white;
+			border: 0 none;
+			border-radius: 0px;
+			cursor: pointer;
+			padding: 10px 5px;
+			margin: 10px 5px
+		}
+
+		#msform .action-button-previous:hover,
+		#msform .action-button-previous:focus {
+			box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+		}
+
+		select.list-dt {
+			border: none;
+			outline: 0;
+			border-bottom: 1px solid #ccc;
+			padding: 2px 5px 3px 5px;
+			margin: 2px
+		}
+
+		select.list-dt:focus {
+			border-bottom: 2px solid skyblue
+		}
+
+		.card {
+			z-index: 0;
+			border: none;
+			border-radius: 0.5rem;
+			position: relative
+		}
+
+		.fs-title {
+			font-size: 25px;
+			color: #2C3E50;
+			margin-bottom: 10px;
+			font-weight: bold;
+			text-align: left
+		}
+
+		#progressbar {
+			margin-bottom: 30px;
+			overflow: hidden;
+			color: lightgrey;
+			padding: 5px;
+		}
+
+		#progressbar .active {
+			color: #000000
+		}
+
+		#progressbar li {
+			list-style-type: none;
+			font-size: 12px;
+			width: 25%;
+			float: left;
+			position: relative
+		}
+
+		#progressbar #check:before {
+			font-family: FontAwesome;
+			content: "\f007"
+		}
+
+		#progressbar #center:before {
+			font-family: FontAwesome;
+			content: "\f041"
+		}
+
+		#progressbar #schedule:before {
+			font-family: FontAwesome;
+			content: "\f073"
+		}
+
+		#progressbar #confirm:before {
+			font-family: FontAwesome;
+			content: "\f00c"
+		}
+
+		#progressbar li:before {
+			width: 50px;
+			height: 50px;
+			line-height: 45px;
+			display: block;
+			font-size: 18px;
+			color: #ffffff;
+			background: lightgray;
+			border-radius: 50%;
+			margin: 0 auto 10px auto;
+			padding: 2px
+		}
+
+		#progressbar li:after {
+			content: '';
+			width: 100%;
+			height: 2px;
+			background: lightgray;
+			position: absolute;
+			left: 0;
+			top: 25px;
+			z-index: -1
+		}
+
+		#progressbar li.active:before,
+		#progressbar li.active:after {
+			background: red
+		}
+
+		.option-input {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			-ms-appearance: none;
+			-o-appearance: none;
+			appearance: none;
+			position: relative;
+			top: 13.33333px;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: 40px;
+			width: 40px;
+			transition: all 0.15s ease-out 0s;
+			background: #cbd1d8;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			display: inline-block;
+			margin-right: 0.5rem;
+			outline: none;
+			position: relative;
+			z-index: 1000
+		}
+		
+		.option-input:hover {
+			background: rgb(255, 191, 191)
+		}
+		
+		.option-input:checked {
+			background: red;
+		}
+		
+		.option-input:checked::before {
+			height: 40px;
+			width: 40px;
+			position: absolute;
+			content: "\f00c";
+			font-family: "Font Awesome 5 Free";
+			display: inline-block;
+			font-size: 26.66667px;
+			text-align: center;
+			line-height: 40px
+		}
+		
+		.option-input:checked::after {
+			-webkit-animation: click-wave 0.25s;
+			-moz-animation: click-wave 0.25s;
+			animation: click-wave 0.25s;
+			display: block;
+			position: relative;
+			z-index: 100;
+		}
+
+			/*Checkbox*/
+				.container {
+					display: block;
+					position: relative;
+					margin-bottom: 12px;
+					cursor: pointer;
+					font-size: 15px;
+					-webkit-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+					text-decoration: none;
+					font-weight: lighter;
+				}
+				
+				/* Hide the browser's default checkbox */
+				.container input {
+					position: absolute;
+					opacity: 0;
+					cursor: pointer;
+					height: 0;
+					width: 0;
+				}
+				
+				/* Create a custom checkbox */
+				.checkmark {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 25px;
+					width: 25px;
+					text-align: center;
+					background-color: #eee;
+				}
+				
+				/* On mouse-over, add a grey background color */
+				.container:hover input ~ .checkmark {
+					background-color: #ccc;
+				}
+				
+				/* When the checkbox is checked, add a blue background */
+				.container input:checked ~ .checkmark {
+					background-color: red;
+				}
+				
+				/* Create the checkmark/indicator (hidden when not checked) */
+				.checkmark:after {
+					content: "";
+					position: absolute;
+					display: none;
+				}
+				
+				/* Show the checkmark when checked */
+				.container input:checked ~ .checkmark:after {
+					display: block;		
+				}
+
+				.container p{
+					margin-left: 20px;
+					margin-top: 0px;
+				}
+
+				div.fs-info, p.note{
+					font-size: 15px;
+				}
+
+			/*Donor Center*/
+
+				div.card img{
+					width: 250px;
+					height: 150px;
+					border-radius: 10px;
+				} 
+
+				div.card{
+					margin: 10px;
+					border-radius: 10px;
+				}
+				
+				div.gallery {
+					margin-bottom: 10px;
+					position: relative;
+					border-radius: 10px;
+				}
+				
+				div.gallery:hover {
+					cursor: pointer;
+				}
+					
+				div.card:focus{
+					background-color: red;
+					color: white;
+				}
+
+				div.card span{
+					font-size: large;
+				}
+
+				p.card-text{
+					font-size: small;
+				}
+
+				.selitem
+				{
+					padding: 10px;
+					color:red;
+					border-right: 5px solid red;
+					border-radius: 10px;
+				}
+
+				/* The overlay effect (full height and width) - lays on top of the container and over the image */
+				.overlay {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					height: 100%;
+					width: 100%;
+					opacity: 0;
+					transition: .3s ease;
+					background-color: black;
+					border-radius: 10px;
+				}
+				
+				/* When you mouse over the container, fade in the overlay icon*/
+				.gallery:hover .overlay {
+					opacity: .8;
+					color: white;
+				}
+				
+				/* The icon inside the overlay is positioned in the middle vertically and horizontally */
+				.icon {
+					color: white;
+					font-size: 100px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					-ms-transform: translate(-50%, -50%);
+					text-align: center;
+				}
+				
+				.fa-lock:hover {
+					color: #eee;
+				}
+
+
+				div.desc {
+					padding: 5px;
+					text-align: center;
+					font-size: 15px;
+				}
+				
+			/*Scheduling*/
+
+				[ng\:cloak], [ng-cloak], .ng-cloak {
+					display: none;
+				}
+				
+				* {
+					box-sizing: border-box;
+				}
+
+				p.note{
+					text-align: center;
+					font-style: italic;
+					margin-bottom: 0px;
+				}
+				
+				.app-container {
+					border-radius: 4px;
+					overflow: hidden;
+					width: 720px;
+					height: auto;
+					max-width: 100%;
+					position: static;
+					top: 120px;
+					left: 0;
+					right: 0;
+					margin: auto;
+				}
+				
+				.datepicker-header {
+					width: 100%;
+					color: white;
+					overflow: hidden;
+				}
+
+				.datepicker-subheader {
+					width: 100%;
+					float: left;
+					height: 60px;
+					line-height: 60px;
+					font-size: 14px;
+					padding: 0 15px;
+					text-align: right;
+					font-size: 20px;
+					
+				}
+
+				/* Datepicker */
+					.datepicker {
+						position: relative;
+						width: 100%;
+						display: block;
+						-webkit-tap-highlight-color: rgba(0,0,0,0);
+						-webkit-user-select: none;
+						-moz-user-select: none;
+						-ms-user-select: none;
+						-o-user-select: none;
+						user-select: none;
+						font-family: "Roboto", sans-serif;
+						overflow: hidden;
+						transition: background 0.15s ease;
+					}
+					
+					.datepicker-header {
+						color: black;
+						float: left;
+					}
+
+					.datepicker-subheader{
+						font-size: 11px;
+						font-style: italic;
+						text-align: left;
+					}
+					
+					.datepicker-calendar {
+						width: 50%;
+						float: left;
+						padding: 20px 15px 15px;
+						max-width: 400px;
+						display: block;
+					}
+					.calendar-header {
+						color: black;
+						font-weight: bolder;
+						text-align: center;
+						font-size: 18px;
+						padding: 10px 0;
+						position: relative;
+					}
+					.current-month-container {
+						display: inline-block;
+						height: 30px;
+						position: relative;
+					}
+					.goback,
+					.goforward {
+						height: 30px;
+						width: 30px;
+						border-radius: 30px;
+						display: inline-block;
+						cursor: pointer;
+						position: relative;
+						top: -4px;
+					}
+					.goback path,
+					.goforward path {
+						transition: stroke 0.15s ease;
+					}
+					.goback {
+						float: left;
+						margin-left: 3.8%;
+					}
+					.goforward {
+						float: right;
+						margin-right: 3.8%;
+					}
+					.calendar-day-header {
+						width: 100%;
+						position: relative;
+					}
+					.day-label {
+						color: #8A8A8A;
+						padding: 5px 0;
+						width: 14.2857142%;
+						display: inline-block;
+						text-align: center;
+					}
+					.datecontainer {
+						width: 14.2857142%;
+						display: inline-block;
+						text-align: center;
+						padding: 4px 0;
+					}
+					.datenumber {
+						max-width: 35px;
+						max-height: 35px;
+						line-height: 35px;
+						margin: 0 auto;
+						color: #8A8A8A;
+						position: relative;
+						text-align: center;
+						cursor: pointer;
+						z-index: 1;
+						transition: all .25s cubic-bezier(0.7,-0.12, 0.2, 1.12);
+					}
+					.no-hover .datenumber,
+					.no-hover .datenumber:hover,
+					.no-hover .datenumber:before,
+					.no-hover .datenumber:hover::before {
+						cursor: default;
+						color: #8A8A8A;
+						background: transparent;
+						opacity: 0.5;
+					}
+					.no-hover .datenumber.day-selected {
+						color: white;
+					}
+					.datenumber:hover {
+						color: white;
+					}
+					.datenumber:before {
+						content: '';
+						display: block;
+						position: absolute;
+						height: 35px;
+						width: 35px;
+						border-radius: 100px;
+						z-index: -1;
+						background: transparent;
+						-webkit-transform: scale(0.75);
+						-moz-transform: scale(0.75);
+						-ms-transform: scale(0.75);
+						-o-transform: scale(0.75);
+						transform: scale(0.75);
+						transition: all .25s cubic-bezier(0.7,-0.12, 0.2, 1.12);
+						transition-property: background, transform, color, border;
+					}
+					.datenumber:hover::before {
+						background: #FFAB91;
+						-webkit-transform: scale(1);
+						-moz-transform: scale(1);
+						-ms-transform: scale(1);
+						-o-transform: scale(1);
+						transform: scale(1);
+					}
+					.day-selected {
+						color: white;
+					}
+					.datenumber.day-selected:before {
+						background: #FF6E40;
+						-webkit-transform: scale(1);
+						-moz-transform: scale(1);
+						-ms-transform: scale(1);
+						-o-transform: scale(1);
+						transform: scale(1);
+						-webkit-animation: select-date .25s forwards;
+						-moz-animation: select-date .25s forwards;
+						animation: select-date .25s forwards;
+					}
+					
+					@-webkit-keyframes select-date {
+						0% { background: #FFAB91; }
+						100% { background: #FF6E40; }
+					}
+					
+					@keyframes select-date {
+						0% { background: #FFAB91; }
+						100% { background: #FF6E40; }
+					}
+					
+					.app-container {
+						width: 100%;
+					}
+					.datepicker-calendar {
+						width: 100%;
+						margin: 0 auto;
+						float: none;
+					}
+
+				/* Available Time */
+					div.timeline{
+						text-align: center;
+						border-left: 1px solid gray;
+						padding-left: 20px;
+						height: 300px;
+						margin-top: 50px;
+					}
+					
+
+			/*Confirmation*/
+				div.leftConfirmation{
+					text-align: right;
+				}
+
+				/*Modal*/
+								
+				div.row{
+					text-align: left;
+				}
+
+				.modal-header {
+					background: #ef715f;
+					color: #fff
+				}
+
+				.modal-header .close {
+					height: 50px;
+					width: 50px;
+					border-radius: 51%;
+					font-size: 30px;
+					padding: 0;
+					color: #fff;
+					position: absolute;
+					left: auto;
+					right: 8px;
+					top: 5px
+				}
+
+				.btn-custom {
+					background: #ef715f;
+					border-radius: 5px;
+					color: #fff;
+					padding: 9px 42px;
+					margin: 20px auto;
+					display: block;
+					font-size: 20px;
+					font-weight: 700
+				}
+
+				.btn-custom:hover {
+					color: #fff
+				}
+
+				h3 {
+					text-align: center;
+					font-size: 35px;
+					padding-top: 20px;
+					letter-spacing: 2px;
+					line-height: 40px
+				}
+
+				p {
+					text-align: center;
+					font-size: 20px;
+					padding-top: 20px;
+					margin: 0
+				}
+
+				@media(max-width: 575px) {
+					.modal-dialog {
+						margin: 1.5rem
+					}
+
+					h5 {
+						padding-top: 20px;
+						padding-bottom: 20px;
+						font-size: 50px
+					}
+
+					h3 {
+						font-size: 45px
+					}
+				}
+
+					
+/*FOOTER*/
+div.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color:#F5F5F5;
+	;
+}
+
+a.Terms-and-Privacy-Setting{
+	font-family: "Lato";
+	color: black;
+    font-size: 15px;
+    font-weight: normal;
+    text-decoration:none;
+	padding: 0px;
+}
+	a.Terms-and-Privacy-Setting:hover {
+		font-weight: bold;
+		color: red;
+	}
+
+div.Terms-and-Privacy-Setting{
+	width: 500px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 12px;
+}
+
+div.footer-info{
+	color: black;
+	font-size: 15px;
+	width: 500px;
+	float: right;
+	text-align: right;
+	margin-right: 15px;
+	margin-top: 12px;
+}
