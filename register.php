@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css"  rossorigin="anonymous">
+    <link rel="stylesheet" href="./res/bootstrap/css/bootstrap.min.css"  rossorigin="anonymous">
 	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
 
-    <link rel = "stylesheet" type="text/css" href="main.css">
+    <link rel = "stylesheet" type="text/css" href="./css/main.css">
     
     <title>Registration | redLife.ph</title>
 
@@ -19,7 +19,7 @@
 <body>
 	<div class="header" id="myHeader" style="z-index: 1"> 
 		<div class="header-left">
-			<img src="resources/images/redLifePhLogo.png" class="redLifePhLogo" alt="redLifePhLogo">
+			<img src="./res/img/redLifePhLogo.png" class="redLifePhLogo" alt="redLifePhLogo">
 			<div class="header-text-left">
 				<div class="PRCCompany">philippine red cross cavite chapter</div>
 				<div class="redLifePhName">redLife.ph</div>
@@ -76,7 +76,7 @@
 							</p>
 						</form>
 						<div class="registerBtn">
-							<button class="registerBtn"onclick="window.location.href='LoginPage.html';">REGISTER</button><br></div>
+							<button class="registerBtn"onclick="window.location.href='login.php'">REGISTER</button><br></div>
 						<hr style="width:80%; margin-left:10% !important; margin-right:10% !important;"/>
 						<div class="bottom-form">
 							Upon registration you agreed on our<br>

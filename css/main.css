@@ -85,7 +85,7 @@ a.LoginPage{
 /*BODY CONTENT*/
 
 div.content{
-	background: red url(/resources/images/Picture1.png);
+	background: red url(../res/img/Picture1.png);
 	background-repeat: no-repeat;
 	width: 100%;
 	height: 630px;

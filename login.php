@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css"  rossorigin="anonymous">
+    <link rel="stylesheet" href="./res/bootstrap/css/bootstrap.min.css"  rossorigin="anonymous">
 	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
 
-    <link rel = "stylesheet" type="text/css" href="main.css">
+    <link rel = "stylesheet" type="text/css" href="./css/main.css">
     
     <title>Login | redLife.ph</title>
 
@@ -35,8 +35,7 @@
 			<div class="row">
 				<div class="col-sm-7">
 					<p class="welcome">Welcome</p>
-					<p class="description">You can now manage your donation appointment </br>
-						details in one convenient place.</p>  
+					<p class="description">You can now manage all your appointment </br> details in one convenient place.</p>  
 				</div>
 				<div class="col-sm-5">
 					<div class="login-box">
@@ -49,7 +48,7 @@
 						</form>
 						<hr style="width:80%; margin-left:10% !important; margin-right:10% !important;"/>
 						<p class="register">Don't have an account yet?</p>
-						<button class="registrationBtn" onclick="window.location.href='registration-page.html';">REGISTER</button> 
+						<button class="registrationBtn" onclick="window.location.href='register.php';">REGISTER</button> 
 					</div>
 				</div>
 			</div>
