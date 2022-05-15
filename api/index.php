@@ -1,18 +1,25 @@
-<?php ?>
+<?php
+/**
+    @desc: Handles the request from client
+    https://localhost/likhaph/redlifeph/api/ENDPOINT_NAME/ACTION_NAME
+*/
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex,nofollow">
-    <title>404 - page not found</title>
-    <script>
-        window.location.href = "./login.php";
-    </script>
-</head>
-<body>
-<p> Page not found </p>
-</body>
-</html>
+
+    // comment the 3 lines below to disable error display
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+
+    // import necessary file
+    include_once (__DIR__ . "/lib/Router.api.php");
+
+    // determine request method
+    $method = $_SERVER["REQUEST_METHOD"];
+
+    // instantiate main class
+    $api = new RouterAPI($method, $_REQUEST["request"]);
+
+    // process the request
+    echo $api->process();
+?>
