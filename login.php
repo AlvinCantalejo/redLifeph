@@ -45,8 +45,9 @@
 						<form class="login-form" id="login-form">
 							<input  class="login-email" type="email" id="email" placeholder="Email Address" required/>
 							<input  class="login-password" type="password" id="password" placeholder="Password" required /><br>
-							<button class="login-button" id="login-btn">LOGIN</button><br>
-							<p class="forgot-password">Forgot password?</p>
+							<button class="login-button" id="btn-login">LOGIN</button><br>
+							<span class="fst-italic text-danger" id="error-message"></span>
+							<!-- <p class="forgot-password">Forgot password?</p> -->
 						</form>
 						<hr style="width:80%; margin-left:10% !important; margin-right:10% !important;"/>
 						<p class="register">Don't have an account yet?</p>
@@ -70,6 +71,19 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- ALERT MODAL -->
+	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+		<div id="alert-modal" class="modal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="container-fluid">
+					<div id="alert">
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
 	<script src="./js/login.js" type="module"></script>
 </body>
 </html>

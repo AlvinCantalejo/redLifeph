@@ -244,7 +244,7 @@ form.registration-form{
 	padding-top: 10px;
 }
 
-p.row1, p.row2, p.row3, p.row4, p.row5, p.row6, p.row7{
+p.row1, p.row2, p.row3, p.row4, p.row5, p.row6, p.row7, p.row8, p.row9{
 	display: table-row;
 }
 
@@ -252,7 +252,7 @@ label {
 	display: table-cell;
 }
 
-input.first-name,input.last-name,input.birth, select.gender, input.email, input.contact, input.password{
+input.first-name,input.last-name,input.birth-date, select.gender,  input.phone-number, input.email, input.password, input.repeat-password{
 	margin-bottom: 10px;
 	width: 250px;
 	margin-left: 10px;
@@ -277,6 +277,7 @@ button.registration-button{
 	background-color: #FF0004;
 	border: none;
 	color: white;
+	text-align: center;
 }
 
 div.registration-button{

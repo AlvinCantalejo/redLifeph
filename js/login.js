@@ -2,9 +2,14 @@ import App from "./class/App.class.js";
 import CookieClass from "./class/Cookie.class.js";
 
 $(document).ready(function() {
-
+   toggleAlert();
 });
 
+function toggleAlert(){
+    if(window.location.href.includes("#registration-successful")){
+        App.validateAlertModal("Registered successfully!", "success");
+    } 
+}
     
     $("#btn-login").on("click", function(e){
         e.preventDefault();
@@ -29,11 +34,10 @@ $(document).ready(function() {
                 success: function (data) { 
                     CookieClass.createCookie(data);
                     console.log(data);
-                    // App.checkUser();
+                    App.checkUser();
                 },
                 error: function () { 
                     errorMessage.text("Wrong email or password!");
-                    window.alert("Wrong email or password!");
                 }
             });
         }

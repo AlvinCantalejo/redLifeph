@@ -8,6 +8,8 @@ class User extends DBHelper{
     const FIRST_NAME = "first_name";
     const LAST_NAME = "last_name";
     const PHONE_NUMBER = "phone_number";
+    const BIRTH_DATE = "birth_date";    
+    const GENDER = "gender";
     const USER_STATUS = "user_status";
     const USER_ROLE = "user_role";
     const TOKEN = "token";
@@ -88,25 +90,51 @@ class User extends DBHelper{
     }
 
 
-    public function addNewUser ($first_name,
+    public function register    ($first_name,
                                 $last_name,
+                                $phone_number,
                                 $email,
                                 $encPassword,
-                                $phone_number,
-                                $user_role) {
+                                $donorID,
+                                $birth_date,
+                                $gender) {
 
-        $sql = "INSERT INTO c_user(first_name, last_name, email, password, phone_number, user_role) 
-                VALUES(?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO r_user(first_name, last_name, phone_number, email, password) 
+                VALUES(?, ?, ?, ?, ?)";
         $statement = $this->db->prepare ($sql);
-        $statement->bind_param('ssssss',
+        $statement->bind_param('sssss',
                                         $first_name,
                                         $last_name,
-                                        $email,
-                                        $encPassword,
                                         $phone_number,
-                                        $user_role);
+                                        $email,
+                                        $encPassword);
+        
         $excecuted = $statement->execute();
+        $idUser = $this->db->insert_id;
 
+        if($excecuted){
+            return $this->addDonor($donorID, $idUser, $birth_date, $gender);  
+        }
+        else{
+            return false;
+        }
+            
+    }
+
+    public function addDonor(   $donorID,
+                                $idUser,
+                                $birth_date,
+                                $gender ){
+
+        $sql = "INSERT INTO r_donor(id, id_user, birth_date, gender) 
+        VALUES(?, ?, ?, ?);";
+        $statement = $this->db->prepare ($sql);
+        $statement->bind_param('siss',
+                                        $donorID,
+                                        $idUser,
+                                        $birth_date,
+                                        $gender);
+        $excecuted = $statement->execute();
         return $excecuted;
     }
 

@@ -3,6 +3,7 @@ include_once(__DIR__ . "/../helper/Session.helper.php");
 include_once(__DIR__ . "/../model/User.model.php");
 include_once(__DIR__ . "/../helper/Param.helper.php");
 include_once(__DIR__ . "/../helper/Token.helper.php");
+include_once(__DIR__ . "/../helper/ID.helper.php");
 
 class UserController {
 
@@ -56,6 +57,43 @@ class UserController {
             }
         }
         return array($data = new Message("Wrong email or password!"), 602);
+    }
+
+     /**
+      @name: "user/register"
+      @desc: register new donor
+      @usage: register form
+     * */
+    public function register()
+    {
+
+        $first_name = ParamHelper::param($this->params, User::FIRST_NAME);
+        $last_name = ParamHelper::param($this->params, User::LAST_NAME);
+        $phone_number = ParamHelper::param($this->params, User::PHONE_NUMBER);
+        $email = ParamHelper::param($this->params, User::EMAIL);
+        $password = ParamHelper::param($this->params, User::PASSWORD);
+        $birth_date = ParamHelper::param($this->params, User::BIRTH_DATE);
+        $donorID = IDHelper::generateDonorID($first_name,$last_name, $birth_date);
+        $gender = ParamHelper::param($this->params, User::GENDER);
+        $encPassword = md5($password);
+
+        $excecuted = $this->userModel->register(    $first_name,
+                                                    $last_name,
+                                                    $phone_number,
+                                                    $email,
+                                                    $encPassword,
+                                                    $donorID,
+                                                    $birth_date,
+                                                    $gender);
+        $data = new Message("User not added!");
+
+        if ($excecuted) {
+            unset($data);
+            $data["message"] = "User added successfully!";
+            $data["token"] = TokenHelper::generateToken();
+            return array($data, 200);
+        }
+        return array($data, 604);
     }
 
     /**

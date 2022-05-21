@@ -112,6 +112,11 @@ class RouterAPI extends APIHelper {
                 $data = $return[0];
                 $code = $return[1];
             }
+            else if($action == "register"){
+                $return = $user->register();
+                $data = $return[0];
+                $code = $return[1];
+            }
             else if($action == "check-if-logged-in"){
                 $return = $user->checkIfLoggedIn();
                 $data = $return[0];
