@@ -18,12 +18,12 @@
 </head>
 
 <body>
-	<div class="header" id="myHeader" style="z-index: 1"> 
+	<div class="header" style="z-index: 1"> 
 		<div class="header-left">
-			<img src="./res/img/redLifePhLogo.png" class="redLifePhLogo" alt="redLifePhLogo">
+			<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
 			<div class="header-text-left">
-				<div class="PRCCompany">philippine red cross cavite chapter</div>
-				<div class="redLifePhName">redLife.ph</div>
+				<div class="company-title">philippine red cross cavite chapter</div>
+				<div class="system-name">redLife.ph</div>
 			</div>
 		</div>
 
@@ -41,14 +41,14 @@
 					<div class="login-box">
 						<br><br>
 						<form class="login-form" id="login-form">
-							<input  class="login-email" type="email" id="login-email" placeholder="Email Address" required/>
-							<input  class="login-password" type="password" id="login-password" placeholder="Password" required /><br>
-							<button class="loginBtn" onclick="">LOGIN</button><br>
-							<p class="forgotPassword">Forgot password?</p>
+							<input  class="login-email" type="email" id="email" placeholder="Email Address" required/>
+							<input  class="login-password" type="password" id="password" placeholder="Password" required /><br>
+							<button class="login-button" id="login-btn">LOGIN</button><br>
+							<p class="forgot-password">Forgot password?</p>
 						</form>
 						<hr style="width:80%; margin-left:10% !important; margin-right:10% !important;"/>
 						<p class="register">Don't have an account yet?</p>
-						<button class="registrationBtn" onclick="window.location.href='register.php';">REGISTER</button> 
+						<button class="register-button" onclick="window.location.href='register.php'">REGISTER</button> 
 					</div>
 				</div>
 			</div>

@@ -33,7 +33,7 @@ div.header-text-left{
 	 margin-top: 10px;
 }
 
-img.redLifePhLogo{
+img.red-life-logo{
 	float: left;
 	width: 70px;
 	height: 70px;
@@ -42,7 +42,7 @@ img.redLifePhLogo{
 	padding: 5px;
 }
 
-div.PRCCompany{
+div.company-title{
 	font-weight:lighter;
 	font-family: "Lato";
 	text-transform:uppercase;
@@ -50,13 +50,13 @@ div.PRCCompany{
 	line-height: 20px;
 }
 
-div.redLifePhName{
+div.system-name{
 	font-family: "Chewy", sans-serif;
 	font-size: 27px;
 	color: red;
 }
 
-img.loginIcon{
+img.login-icon{
 	float: right;
 	width: 40px;
 	height: 40px;
@@ -65,20 +65,20 @@ img.loginIcon{
 	padding: 5px;
 }
 
-div.LoginLink {
+div.link {
 	margin-right: 55px;
 	margin-top: 3px;
 	padding: 10px;
 }
 
-a.LoginPage{
+a.login-page{
 	font-family: "Lato";
     font-size: 15px;
     color: black;
     font-weight: normal;
     text-decoration:none;
 }
-	a.LoginPage:hover {
+	a.login-page:hover {
         font-weight: bold;
     }
 
@@ -108,7 +108,7 @@ div.row{
 	text-align: center;
 }
 
-div.welcomeHeadTitle{
+div.welcome-title{
 	font-family: "Chewy", sans-serif;
 	color: white;
 	margin-top: 70px;
@@ -128,12 +128,13 @@ img.logo {
 		height: 138px;
 		cursor: pointer;
 	}
+
 div.col-md-2{
 	z-index: 1;
 		text-align: center;
 }
 
-div.buttonTitle{
+div.button-title{
 	margin-top: 10px;
 	font-family: 'GlacialIndifferenceRegular';
 	letter-spacing: 2px;
@@ -141,7 +142,7 @@ div.buttonTitle{
 	font-size: 25px;
 }
 
-div.buttonSubtitle{
+div.button-subtitle{
 	margin-top: 10px;
 	font-family: 'GlacialIndifferenceRegular';
 	letter-spacing: 1px;
@@ -194,7 +195,7 @@ input.login-email, input.login-password{
 	padding-left: 15px;
 }
 
-button.loginBtn{
+button.login-button{
 	margin-bottom: 10px;
 	width: 280px;
 	height: 35px;
@@ -204,11 +205,11 @@ button.loginBtn{
 	color: white;
 }
 
-p.forgotPassword{
+p.forgot-password{
 	color: red;
 }
 
-button.registrationBtn{
+button.register-button{
 	width: 280px;
 	height: 35px;
 	border-radius: 20px;
@@ -251,7 +252,7 @@ label {
 	display: table-cell;
 }
 
-input.firstname,input.lastname,input.birth, select.gender, input.email, input.contact, input.password{
+input.first-name,input.last-name,input.birth, select.gender, input.email, input.contact, input.password{
 	margin-bottom: 10px;
 	width: 250px;
 	margin-left: 10px;
@@ -269,7 +270,7 @@ label.reg{
 	text-align: left;
 }
 
-button.registerBtn{
+button.registration-button{
 	width: 370px;
 	height: 35px;
 	border-radius: 20px;
@@ -278,7 +279,7 @@ button.registerBtn{
 	color: white;
 }
 
-div.registerBtn{
+div.registration-button{
 	text-align: center;
 	margin-left: 0px;
 }
@@ -294,7 +295,6 @@ a.TCandPolicy{
 }
 	a.TCandPolicy:hover{
 		font-weight: bold;
-		text-decoration: underline;
 	}
 
 

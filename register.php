@@ -17,12 +17,12 @@
 
 </head>
 <body>
-	<div class="header" id="myHeader" style="z-index: 1"> 
+	<div class="header" style="z-index: 1"> 
 		<div class="header-left">
-			<img src="./res/img/redLifePhLogo.png" class="redLifePhLogo" alt="redLifePhLogo">
+			<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
 			<div class="header-text-left">
-				<div class="PRCCompany">philippine red cross cavite chapter</div>
-				<div class="redLifePhName">redLife.ph</div>
+				<div class="company-title">philippine red cross cavite chapter</div>
+				<div class="system-name">redLife.ph</div>
 			</div>
 		</div>
 
@@ -42,20 +42,20 @@
 						<br>
 						<form class="registration-form" id="registration-form">
 							<p class="row1"> 
-								<label for="a">First Name</label>
-								<input class="firstname" type="firstname" id="firstname" required/>
+								<label for="first-name">First Name</label>
+								<input class="first-name" type="first-name" id="first-name" required/>
 							</p>
 							<p class="row2"> 
-								<label for="b">Last Name</label>
-								<input class="lastname" type="lastname" id="lastname" required/>
+								<label for="last-name">Last Name</label>
+								<input class="last-name" type="last-name" id="last-name" required/>
 							</p>
 							<p class="row3"> 
-								<label for="c">Date of Birth </label>
-								<input class="birth" type="date" id="start" name="trip-start" value="2003-12-31" min="1956-01-01" max="2003-12-31" required/>
+								<label for="date-of-birth">Date of Birth </label>
+								<input class="birth" type="date" id="date-of-birth" name="trip-start" value="2003-12-31" min="1956-01-01" max="2003-12-31" required/>
 
 							</p>
 							<p class="row4"> 
-								<label for="d">Gender</label>
+								<label for="gender">Gender</label>
 								<select class="gender" name="gender" id="gender">
 									<option value="male">Male</option>
 									<option value="female">Female</option>
@@ -63,20 +63,20 @@
 								  </select>
 							</p>
 							<p class="row5"> 
-								<label for="e">Email Address</label>
+								<label for="email">Email Address</label>
 								<input class="email" type="email" id="email" required/>
 							</p>
 							<p class="row6"> 
-								<label for="f">Contact </label>
+								<label for="contact">Contact </label>
 								<input class="contact" type="tel" id="contact" pattern="{11}" required/>
 							</p>
 							<p class="row7"> 
-								<label for="g">Password</label>
+								<label for="password">Password</label>
 								<input class="password" type="password" id="password" required/>
 							</p>
 						</form>
-						<div class="registerBtn">
-							<button class="registerBtn"onclick="window.location.href='login.php'">REGISTER</button><br></div>
+						<div class="registration-button">
+							<button class="registration-button" id="register-btn">REGISTER</button><br></div>
 						<hr style="width:80%; margin-left:10% !important; margin-right:10% !important;"/>
 						<div class="bottom-form">
 							Upon registration you agreed on our<br>

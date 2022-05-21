@@ -17,29 +17,29 @@
 
 </head>
 <body>
-    <div class="header" id="myHeader" style="z-index: 1"> 
+    <div class="header" style="z-index:1"> 
 		<div class="header-left">
-			<img src="./res/img/redLifePhLogo.png" class="redLifePhLogo" alt="redLifePhLogo">
+			<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
 			<div class="header-text-left">
-				<div class="PRCCompany">philippine red cross cavite chapter</div>
-				<div class="redLifePhName">redLife.ph</div>
+				<div class="company-title">philippine red cross cavite chapter</div>
+				<div class="system-name">redLife.ph</div>
 			</div>
 		</div>
 
-		<section id ="signedOut">
+		<section id ="signed-out">
 			<div class="header-right">
-				<img src="./res/img/loginIcon.png" class="loginIcon" alt="loginIcon">
-				<div class="LoginLink">
-					<a href ="login.php" class="LoginPage">Login</a>
+				<img src="./res/img/loginIcon.png" class="login-icon" alt="login-icon">
+				<div class="link">
+					<a href ="login.php" class="login-page">Login</a>
 				</div>
 			</div>
 		</section>
 		
-		<section id="signedIn" hidden="true"> 
+		<section id="signed-in" hidden> 
 			<div class="header-right">
-				<img src="" class="loginIcon" alt="profile-picture">
-				<div class="LoginLink">
-					<a class="LoginPage">Profile Name</a>
+				<img src="" class="login-icon" alt="profile-pic">
+				<div class="link">
+					<a class="login-page">Profile Name</a>
 				</div>
 			</div>
 		</section>
@@ -48,33 +48,33 @@
 	<div class="content" style="z-index: 0">
 		<div class="color-overlay"></div>
 		<div class="row">
-			<div class="welcomeHeadTitle">Every donation saves 3 lives!</div>
+			<div class="welcome-title">Every donation saves 3 lives!</div>
 		</div>
 		<div class="logo-alignment">
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-2">
-					<img src="./res/img/donateLogo.png" class="logo" alt="donateLogo" onclick="window.location.href='login.php'"><br>
-					<div class="buttonTitle">Donate</div>
-					<div class="buttonSubtitle">Make appointment now!</div>
+					<img src="./res/img/donateLogo.png" class="logo" alt="donate-logo" onclick="window.location.href='login.php'"><br>
+					<div class="button-title">Donate</div>
+					<div class="button-subtitle">Make appointment now!</div>
 				</div>
 
 				<div class="col-md-2">
-					<img src="./res/img/requestLogo.png" class="logo" alt="requestLogo"><br>
-					<div class="buttonTitle">Request</div>
-					<div class="buttonSubtitle">Schedule request for blood products</div>
+					<img src="./res/img/requestLogo.png" class="logo" alt="request-logo"><br>
+					<div class="button-title">Request</div>
+					<div class="button-subtitle">Schedule request for blood products</div>
 				</div>
 
 				<div class="col-md-2">
-					<img src="./res/img/campaignLogo.png" class="logo" alt="campaignLogo"><br>
-					<div class="buttonTitle">Campaign</div>
-					<div class="buttonSubtitle">Browse blood donation campaign near you</div>
+					<img src="./res/img/campaignLogo.png" class="logo" alt="campaign-logo"><br>
+					<div class="button-title">Campaign</div>
+					<div class="button-subtitle">Browse blood donation campaign near you</div>
 				</div>
 
 				<div class="col-md-2">
-					<img src="./res/img/learnLogo.png" class="logo" alt="learnLogo"><br>
-					<div class="buttonTitle">Learn</div>
-					<div class="buttonSubtitle">Discover how blood donation works</div>
+					<img src="./res/img/learnLogo.png" class="logo" alt="learn-logo"><br>
+					<div class="button-title">Learn</div>
+					<div class="button-subtitle">Discover how blood donation works</div>
 				</div>
 				<div class="col-md-2"></div>
 			</div>
