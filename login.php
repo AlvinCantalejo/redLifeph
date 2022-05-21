@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
 
-    <link rel="stylesheet" href="./res/bootstrap/css/bootstrap.min.css"  rossorigin="anonymous">
+    <link href="./res/bootstrap/css/bootstrap.min.css"  rel="stylesheet">
+	<script src="./res/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="./res/jquery/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
 
     <link rel = "stylesheet" type="text/css" href="./css/main.css">
@@ -68,6 +70,6 @@
 			</div>
 		</div>
 	</div>
-    <script></script>
+	<script src="./js/login.js" type="module"></script>
 </body>
 </html>
