@@ -3,6 +3,7 @@ import CookieClass from "./class/Cookie.class.js";
 
 $(document).ready(function() {
    toggleAlert();
+   bindActionButtons();
 });
 
 function toggleAlert(){
@@ -10,12 +11,20 @@ function toggleAlert(){
         App.validateAlertModal("Registered successfully!", "success");
     } 
 }
+
+function bindActionButtons(){
+
     
-    $("#btn-login").on("click", function(e){
+    $(".open-register-form").on("click", function(e){
+
+        window.location.href = "./register.php";
+    });
+
+    $(".btn-login").on("click", function(e){
         e.preventDefault();
 
         var errorMessage = $("#error-message");
-        var email = $("#email").val(); 
+        var email = $("#email").val();
         var password = $("#password").val();
         
         var apiURL = App.getApiUrl();
@@ -33,8 +42,8 @@ function toggleAlert(){
                 data: parameters,
                 success: function (data) { 
                     CookieClass.createCookie(data);
-                    console.log(data);
                     App.checkUser();
+                    
                 },
                 error: function () { 
                     errorMessage.text("Wrong email or password!");
@@ -45,3 +54,11 @@ function toggleAlert(){
             errorMessage.text("All fields are required!");
         }
     });
+    
+}
+
+function login(formData) {
+
+}
+    
+    

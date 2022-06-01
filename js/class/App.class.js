@@ -31,7 +31,7 @@ class App {
     //VALIDATE PHONE NUMBER
     static checkPhoneNumber(phoneNumber){
 
-        let phoneNumberFormat = /^\(?([0-9]{2})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        let phoneNumberFormat = /^\(?([0-9]{4})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     
         if(phoneNumber.match(phoneNumberFormat))
             return true;

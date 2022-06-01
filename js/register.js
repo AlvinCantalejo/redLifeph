@@ -2,24 +2,34 @@ import App from "./class/App.class.js";
 import CookieClass from "./class/Cookie.class.js";
 
 $(document).ready(function() {
-    
+    bindActionButtons();
 });
 
-    $("#btn-register").on("click", function(e){
+function bindActionButtons(){
+
+    $(".open-login-form").on("click", function(e){
+        e.preventDefault();
+        window.location.href = "./login.php";
+    });
+    
+    $(".btn-register").on("click", function(e){
         e.preventDefault();
 
         var form = $("form#registration-form");
         var data = form.serialize().split("&");
         var formData = App.objectConverter(data);
+        // console.log (formData);
         register(formData);
     });
-
+}
 
 var errorMessage = $("#error-message");
+
 function register(formData){
     
     let error = validateFormData(formData);
-    if (error != "") errorMessage.text(error);
+    if (error != "") 
+        errorMessage.text(error);
     else {
         errorMessage.text("");
         var apiURL = App.getApiUrl();
@@ -32,8 +42,9 @@ function register(formData){
             success: function (data) { 
                 window.location.href = "./login.php#registration-successful"
             },
-            error: function () { 
-                errorMessage.text("Wrong email or password!");
+            error: function (error) { 
+                console.log(error);
+                errorMessage.text("Failed to register. Please try again.");
             }
         });
     }
@@ -47,30 +58,32 @@ function validateFormData(formData) {
     let password = App.checkPassword(formData.password);
 
     if (
-        formData.email == "" ||
-        formData.password == "" ||
         formData.first_name == "" ||
         formData.last_name == "" ||
-        formData.phone_number == "" ||
         formData.email == "" ||
         formData.password == "" ||
-        formData.repeat_password == ""
-    )
-        error = "All fields are required!";
-    else if (!phoneNumber) {
-        error = "Invalid phone number!";
+        formData.repeat_password == "" ||
+        formData.birth_date == "" ||
+        formData.gender == "" ||
+        formData.phone_number == ""
+    ){
+        error = "Please input all fields.";
     }
     else if (!email){
-        error = "Invalid email";
+        error = "Please input valid email.";
     }
     else if (!password) {
-        error = "Invalid password!";
+        error = "Password should be at least 8 characters, with uppercase, lowercase, special character and number.";
     }
     else if(
         formData.password !=
         formData.repeat_password
-    )
+    ){
         error = "Passwords not match!";
+    }
+    else if (!phoneNumber) {
+        error = "Please input valid phone number.";
+    }
 
     return error;
 }

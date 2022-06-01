@@ -6,12 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex,nofollow">
 
-    <link rel="stylesheet" href="./res/bootstrap/css/bootstrap.min.css"  rossorigin="anonymous">
-	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
+    <link rel="stylesheet" href="./../../res/bootstrap/css/bootstrap.min.css"  crossorigin="anonymous">
+	<link rel="stylesheet" media="screen" href="./../../res/font/font.css" type="text/css"/>
 
-    <link rel = "stylesheet" type="text/css" href="./css/main.css">
+    <link rel = "stylesheet" type="text/css" href="./../../css/main.css">
     
     <title>Welcome | redLife.ph</title>
 
@@ -19,7 +18,7 @@
 <body>
     <div class="header" id="myHeader" style="z-index: 1"> 
 		<div class="header-left">
-			<img src="./res/img/redLifePhLogo.png" class="redLifePhLogo" alt="redLifePhLogo">
+			<img src="./../../res/img/redLifePhLogo.png" class="redLifePhLogo" alt="redLifePhLogo">
 			<div class="header-text-left">
 				<div class="PRCCompany">philippine red cross cavite chapter</div>
 				<div class="redLifePhName">redLife.ph</div>
@@ -28,7 +27,7 @@
 
 		<section id ="signedOut">
 			<div class="header-right">
-				<img src="./res/img/loginIcon.png" class="loginIcon" alt="loginIcon">
+				<img src="./../../res/img/loginIcon.png" class="loginIcon" alt="loginIcon">
 				<div class="LoginLink">
 					<a href ="login.php" class="LoginPage">Login</a>
 				</div>

@@ -4,6 +4,7 @@ include_once(__DIR__ . "/../model/User.model.php");
 include_once(__DIR__ . "/../helper/Param.helper.php");
 include_once(__DIR__ . "/../helper/Token.helper.php");
 include_once(__DIR__ . "/../helper/ID.helper.php");
+include_once(__DIR__ . "/../helper/Email.helper.php");
 
 class UserController {
 
@@ -11,6 +12,7 @@ class UserController {
 	var $string = "";
     var $params = [];
     var $sessionHelper;
+    var $emailHelper;
 	var $userModel;
 	var $attendanceModel;
     /**
@@ -18,6 +20,7 @@ class UserController {
     */
     public function __construct ($params) {
         $this->sessionHelper = new SessionHelper();
+        $this->emailHelper = new EmailHelper();
         $this->params = $params;//$_POST, $_GET
         $this->userModel = new User();
     }
@@ -30,10 +33,10 @@ class UserController {
     public function login () {
         $email = ParamHelper::param($this->params, User::EMAIL);
         $password = ParamHelper::param($this->params, User::PASSWORD);
-        $user_status = "Active";
+        $userStatus = "Active";
         $encPassword = md5($password);
 
-        $dataset = $this->userModel->loginUser($email, $user_status);
+        $dataset = $this->userModel->loginUser($email, $userStatus);
 
         $data = new Message("Wrong email or password!");
         
@@ -67,23 +70,24 @@ class UserController {
     public function register()
     {
 
-        $first_name = ParamHelper::param($this->params, User::FIRST_NAME);
-        $last_name = ParamHelper::param($this->params, User::LAST_NAME);
-        $phone_number = ParamHelper::param($this->params, User::PHONE_NUMBER);
+        $firstName = ParamHelper::param($this->params, User::FIRST_NAME);
+        $lastName = ParamHelper::param($this->params, User::LAST_NAME);
+        $phoneNumber = ParamHelper::param($this->params, User::PHONE_NUMBER);
         $email = ParamHelper::param($this->params, User::EMAIL);
         $password = ParamHelper::param($this->params, User::PASSWORD);
-        $birth_date = ParamHelper::param($this->params, User::BIRTH_DATE);
-        $donorID = IDHelper::generateDonorID($first_name,$last_name, $birth_date);
+        $birthDate = ParamHelper::param($this->params, User::BIRTH_DATE);
+        $fullName = $firstName . " " . $lastName;
+        $donorID = IDHelper::generateDonorID($fullName, $birthDate);
         $gender = ParamHelper::param($this->params, User::GENDER);
         $encPassword = md5($password);
 
-        $excecuted = $this->userModel->register(    $first_name,
-                                                    $last_name,
-                                                    $phone_number,
+        $excecuted = $this->userModel->register(    $firstName,
+                                                    $lastName,
+                                                    $phoneNumber,
                                                     $email,
                                                     $encPassword,
                                                     $donorID,
-                                                    $birth_date,
+                                                    $birthDate,
                                                     $gender);
         $data = new Message("User not added!");
 
@@ -91,6 +95,7 @@ class UserController {
             unset($data);
             $data["message"] = "User added successfully!";
             $data["token"] = TokenHelper::generateToken();
+            $data["email-verification"] = $this->emailHelper->sendEmailVerification($email, $firstName." ".$lastName);
             return array($data, 200);
         }
         return array($data, 604);
@@ -148,20 +153,20 @@ class UserController {
     public function updateProfile () {
 
         $id = ParamHelper::param($this->params, User::ID);
-        $first_name = ParamHelper::param($this->params, User::FIRST_NAME);
-        $last_name = ParamHelper::param($this->params, User::LAST_NAME);
+        $firstName = ParamHelper::param($this->params, User::FIRST_NAME);
+        $lastName = ParamHelper::param($this->params, User::LAST_NAME);
         $email = ParamHelper::param($this->params, User::EMAIL);
-        $phone_number = ParamHelper::param($this->params, User::PHONE_NUMBER);
-        $user_status = ParamHelper::param($this->params, User::USER_STATUS);
-        $user_role = ParamHelper::param($this->params, User::USER_ROLE);
+        $phoneNumber = ParamHelper::param($this->params, User::PHONE_NUMBER);
+        $userStatus = ParamHelper::param($this->params, User::USER_STATUS);
+        $userRole = ParamHelper::param($this->params, User::USER_ROLE);
  
         $excecuted = $this->userModel->updateProfile($id,
-                                                    $first_name,
-                                                    $last_name,
+                                                    $firstName,
+                                                    $lastName,
                                                     $email,
-                                                    $phone_number,
-                                                    $user_status,
-                                                    $user_role);
+                                                    $phoneNumber,
+                                                    $userStatus,
+                                                    $userRole);
 
         $data = new Message("User not updated!");
         

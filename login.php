@@ -13,76 +13,60 @@
 	<script src="./res/jquery/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
 
-    <link rel = "stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/main/login.css">
     
     <title>Login | redLife.ph</title>
 
 </head>
 
 <body>
-	<div class="header" style="z-index: 1"> 
-		<div class="header-left">
-			<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
-			<div class="header-text-left">
-				<div class="company-title">philippine red cross cavite chapter</div>
-				<div class="system-name">redLife.ph</div>
-			</div>
-		</div>
-
-	</div>
-	
-	<div class="content" style="z-index: 0">
-		<div class="color-overlay"></div>
-		<div class="login-alignment">
-			<div class="row">
-				<div class="col-sm-7">
-					<p class="welcome">Welcome</p>
-					<p class="description">You can now manage all your appointment </br> details in one convenient place.</p>  
+	<div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+			<a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+				<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
+				<div>
+					<span class="header-title">philippine red cross cavite chapter</span><br>
+					<span class="header-subtitle">redLife.ph</span>
 				</div>
-				<div class="col-sm-5">
-					<div class="login-box">
-						<br><br>
-						<form class="login-form" id="login-form">
-							<input  class="login-email" type="email" id="email" placeholder="Email Address" required/>
-							<input  class="login-password" type="password" id="password" placeholder="Password" required /><br>
-							<button class="login-button" id="btn-login">LOGIN</button><br>
-							<span class="fst-italic text-danger" id="error-message"></span>
-							<!-- <p class="forgot-password">Forgot password?</p> -->
-						</form>
-						<hr style="width:80%; margin-left:10% !important; margin-right:10% !important;"/>
-						<p class="register">Don't have an account yet?</p>
-						<button class="register-button" onclick="window.location.href='register.php'">REGISTER</button> 
+			</a>
+        </header>
+    </div>
+
+	<div class="container col-xl-12 col-xxl-10 px-4 py-5">
+		<div class="row align-items-center g-lg-5 py-5">
+			<div class="col-lg-7 text-center text-lg-start">
+				<h1 class="display-4 fw-bold lh-1 mb-3 text-danger">Welcome to redLife.ph!</h1>
+				<p class="col-lg-10 fs-4">Manage all your appointment details in one convenient place.</p>
+			</div>
+			<div class="col-md-10 mx-auto col-lg-5">
+				<form class="p-4 p-md-5 form-box rounded-3 shadow-lg bg-body" id="login-form">
+					<div class="form-floating mb-3">
+						<input type="email" class="form-control form-control-sm" id="email" name="email" autocomplete="off" placeholder="name@example.com" required>
+						<label for="email">Email address</label>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="footer"> 
-		<div class="row">
-			<div class="col-md-6">
-				<div class="Terms-and-Privacy-Setting">
-					<a href ="Terms and Condition.html" class="Terms-and-Privacy-Setting">Terms and Condition | </a>
-					<a href ="Privacy Setting.html" class="Terms-and-Privacy-Setting">Privacy Setting</a>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="footer-info">2021 Philippine Red Cross - redLife.ph</p>
-			</div>
-		</div>
-	</div>
-
-	<!-- ALERT MODAL -->
-	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-		<div id="alert-modal" class="modal">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="container-fluid">
-					<div id="alert">
+					<div class="form-floating">
+						<input type="password" class="form-control form-control-sm" id="password" name="password" autocomplete="off" placeholder="password" required>
+						<label for="password">Password</label>
 					</div>
-				</div>
-			</div>	
+
+					<div class="error-msg"><span class="text-danger" id="error-message"></span></div>
+					<button class="w-100 btn btn-lg btn-danger btn-login" type="submit">Login</button>
+
+					<hr class="mb-4 mt-0">
+					<p class="text-muted text-center">Don't have an account yet?</p>
+					<button class="w-100 btn btn-lg btn-outline-danger open-register-form" type="button">Register</button>
+				</form>
+			</div>
 		</div>
-	</div>
+  	</div>
+
+	<?php
+		include_once("./module/components/footer.php");
+    ?>
+
+	<?php
+		include_once("./module/components/alert-modal.php");
+    ?>
 
 	<script src="./js/login.js" type="module"></script>
 </body>
