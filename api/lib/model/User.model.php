@@ -21,7 +21,7 @@ class User extends DBHelper{
         parent::__construct();
     }   
 
-    public function loginUser($email, $user_status){
+    public function loginUser($email, $userStatus){
         $sql = "SELECT r_user.*
                 FROM r_user 
                 WHERE r_user.email = ? 
@@ -29,7 +29,7 @@ class User extends DBHelper{
                 LIMIT 1";
                 
         $statement = $this->db->prepare($sql);
-        $statement->bind_param('ss', $email, $user_status);
+        $statement->bind_param('ss', $email, $userStatus);
         $statement->execute();
         $dataset = $statement->get_result();
 
@@ -90,30 +90,33 @@ class User extends DBHelper{
     }
 
 
-    public function register    ($first_name,
-                                $last_name,
-                                $phone_number,
-                                $email,
-                                $encPassword,
-                                $donorID,
-                                $birth_date,
-                                $gender) {
+    public function register    (   $firstName,
+                                    $lastName,
+                                    $phoneNumber,
+                                    $email,
+                                    $encPassword,
+                                    $donorID,
+                                    $birthDate,
+                                    $gender ) {
 
         $sql = "INSERT INTO r_user(first_name, last_name, phone_number, email, password) 
                 VALUES(?, ?, ?, ?, ?)";
         $statement = $this->db->prepare ($sql);
         $statement->bind_param('sssss',
-                                        $first_name,
-                                        $last_name,
-                                        $phone_number,
+                                        $firstName,
+                                        $lastName,
+                                        $phoneNumber,
                                         $email,
-                                        $encPassword);
+                                        $encPassword );
         
         $excecuted = $statement->execute();
         $idUser = $this->db->insert_id;
 
         if($excecuted){
-            return $this->addDonor($donorID, $idUser, $birth_date, $gender);  
+            return $this->addDonor( $donorID, 
+                                    $idUser, 
+                                    $birthDate, 
+                                    $gender );  
         }
         else{
             return false;
@@ -121,9 +124,9 @@ class User extends DBHelper{
             
     }
 
-    public function addDonor(   $donorID,
-                                $idUser,
-                                $birth_date,
+    public function addDonor(   $donorID, 
+                                $idUser, 
+                                $birthDate, 
                                 $gender ){
 
         $sql = "INSERT INTO r_donor(id, id_user, birth_date, gender) 
@@ -132,7 +135,7 @@ class User extends DBHelper{
         $statement->bind_param('siss',
                                         $donorID,
                                         $idUser,
-                                        $birth_date,
+                                        $birthDate,
                                         $gender);
         $excecuted = $statement->execute();
         return $excecuted;

@@ -12,103 +12,107 @@
 	<script src="./res/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./res/jquery/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
-
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/main/register.css">
     
     <title>Registration | redLife.ph</title>
 
 </head>
 <body>
-	<div class="header" style="z-index: 1"> 
-		<div class="header-left">
-			<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
-			<div class="header-text-left">
-				<div class="company-title">philippine red cross cavite chapter</div>
-				<div class="system-name">redLife.ph</div>
-			</div>
-		</div>
-
-	</div>
-	
-	<div class="content" style="z-index: 0">
-		<div class="color-overlay"></div>
-		<div class="login-alignment">
-			<div class="row">
-				<div class="col-sm-7">
-					<p class="welcome">Welcome</p>
-					<p class="description">You can now manage all your appointment </br>
-						details in one convenient place.</p>  
+	<div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+			<a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+				<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
+				<div>
+					<span class="header-title">philippine red cross cavite chapter</span><br>
+					<span class="header-subtitle">redLife.ph</span>
 				</div>
-				<div class="col-sm-5">
-					<div class="registration-box">
-						<br>
-						<form class="registration-form" id="registration-form">
-							<p class="row1"> 
-								<label for="first-name">First Name</label>
-								<input class="first-name" type="first-name" id="first-name" name="first_name" required/>
-							</p>
-							<p class="row2"> 
-								<label for="last-name">Last Name</label>
-								<input class="last-name" type="last-name" id="last-name" name ="last_name" required/>
-							</p>
-							<p class="row3"> 
-								<label for="birth-date">Date of Birth </label> 
-								<input class="birth-date" type="date" id="birth-date" name="birth_date" value="2003-12-31" min="1956-01-01" max="2003-12-31" required/>
-							</p>
-							<p class="row4"> 
-								<label for="gender">Gender</label>
-								<select class="gender" name="gender" id="gender">
-									<option value="male">Male</option>
-									<option value="female">Female</option>
-									<option value="others">Prefer not to say</option>
-								  </select>
-							</p>
-							<p class="row5"> 
-								<label for="phone-number">Phone Number</label>
-								<input class="phone-number" type="text" id="phone-number" name="phone_number" required/>
-							</p>
-							<p class="row6"> 
-								<label for="email">Email Address </label>
-								<input class="email" type="email" id="email" name="email" autocomplete="off" required/>
-							</p>
-							<p class="row7"> 
-								<label for="password">Password</label>
-								<input class="password" type="password" id="password" name="password" autocomplete="off" required/>
-							</p>
-							<p class="row8"> 
-								<label for="repeat-password">Repeat Password </label>
-								<input class="repeat-password" type="password" id="repeat-password" name="repeat_password" autocomplete="off" required/>
-							</p>
-						</form>
-							<div class="registration-button">
-								<button class="registration-button" id="btn-register">REGISTER</button><br></div>
-								<span class="fst-italic text-danger" id="error-message"></span>
-							<hr style="width:80%; margin-left:10% !important; margin-right:10% !important;"/>
-							<div class="bottom-form">
-								Upon registration you agreed on our<br>
-								<a href ="Terms and Condition.html"class="TCandPolicy">Terms and Condition</a> |
-								<a href ="Privacy Setting.html" class="TCandPolicy"> Privacy Setting</a>
-							</div>
+			</a>
+			<div class="col-md-3 text-end">
+				<button type="button" class="btn btn-danger me-2 open-login-form">Login</button>
+			</div>
+        </header>
+    </div>
+
+	<div class="container col-xl-12 col-xxl-10 px-4 py-1">
+		<div class="row align-items-center g-lg-5 py-5">
+			<div class="col-lg-7 text-center text-lg-start">
+				<h1 class="display-4 fw-bold lh-1 mb-3 text-danger">Welcome to redLife.ph!</h1>
+				<p class="col-lg-10 fs-4">Start your journey with us by creating your own account. Register now!</p>
+			</div>
+			<div class="col-md-10 mx-auto col-lg-5">
+				<form class="p-4 p-md-4 form-box rounded-3 shadow-lg bg-body" id="registration-form">
+					<h4 class="fw-bold mb-3 mt-0 text-danger">Sign Up</h1>
+
+					<div class="row mb-3">
+						<div class="col">
+							<input type="text" class="form-control" id="first-name" name="first_name" placeholder="First name" required>
+						</div>
 						
-					  </div>
-				</div>
-			</div>
-		</div>
-	</div>
+						<div class="col">
+							<input type="text" class="form-control" id="last-name" name="last_name" placeholder="Last name" required>
+						</div>
+					</div>
 
-	<div class="footer"> 
-		<div class="row">
-			<div class="col-md-6">
-				<div class="Terms-and-Privacy-Setting">
-					<a href ="Terms and Condition.html" class="Terms-and-Privacy-Setting">Terms and Condition | </a>
-					<a href ="Privacy Setting.html" class="Terms-and-Privacy-Setting">Privacy Setting</a>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="footer-info">2021 Philippine Red Cross - redLife.ph</p>
+					<div class="mb-3">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Email" autocomplete="off" required>
+					</div>
+
+					<div class="mb-3">
+						<input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" required>
+					</div>
+
+					<div class="mb-3">
+						<input type="password" class="form-control" id="repeat-password" name="repeat_password" placeholder="Repeat Password" autocomplete="off" required>	
+					</div>
+
+					<div class="row mb-3">
+						<div class="col">
+							<label for="birth-date">Date of Birth </label> 
+							<input class="form-control" type="date" id="birth-date" name="birth_date" value="2003-12-31" min="1956-01-01" max="2003-12-31" required/>	
+						</div>
+						
+						<div class="col">
+							<label for="gender">Gender </label> 
+							<select id="gender" class="form-select">
+								<option selected disabled>Select</option>
+								<option>Male</option>
+								<option>Female</option>
+								<option>Prefer not to say</option>
+							</select>
+						</div>
+
+					</div>
+
+					<div>
+						<label for="phone-number">Phone Number</label>
+						<input class="form-control" type="text" id="phone-number" name="phone_number" placeholder="0912-345-6789" required>
+					</div>
+
+					<div class="error-msg"><span class="text-danger" id="error-message"></span></div>
+					<button class="w-100 btn btn-lg btn-danger btn-register" type="submit">Register</button>
+
+					<hr class="mb-4 mt-0">
+					<div class="agreement-msg">
+						<span class="text-muted">By clicking Register, you agree to our
+							<!-- Place it in modal form -->
+							<a href="" id="terms-link" >Terms</a> and 
+							<a href="" id="privacy-link" >Privacy Setting</a>.
+						</span>
+					</div>
+				</form>
 			</div>
 		</div>
-	</div>
-    <script src="./js/register.js" type="module"></script>
+  	</div>
+
+	<?php
+    	include_once("./module/components/footer.php");
+    ?>
+
+	<?php
+		include_once("./module/components/alert-modal.php");
+	?>
+
+	<script src="./js/register.js" type="module"></script>
+
 </body>
 </html>

@@ -1,0 +1,51 @@
+body {
+  color: #5a5a5a;
+}
+
+/* HEADER */
+.header-title{
+font-weight:lighter;
+font-family: "Lato";
+text-transform:uppercase;
+}
+
+.header-subtitle{
+font-family: "Chewy", sans-serif;
+font-size: 27px;
+color: red;
+}
+
+.header-text{
+  margin-left: 20px;
+}
+
+img.red-life-logo{
+width: 70px;
+height: 70px;
+padding: 5px;
+}
+
+/* BODY */
+.agreement-msg{
+	text-align: center;
+	padding: 10px;
+	font-size: small;
+  }
+
+.error-msg{
+text-align: center;
+padding: 10px;
+font-size: small;
+}
+
+/* FOOTER */
+.website-footer {
+  padding: 2.5rem 0;
+  color: #727272;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.website-footer p:last-child {
+  margin-bottom: 0;
+}
