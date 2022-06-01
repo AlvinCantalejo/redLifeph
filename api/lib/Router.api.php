@@ -6,6 +6,9 @@
 include_once(__DIR__ . "/helper/Session.helper.php");
 include_once(__DIR__ . "/helper/API.helper.php");
 include_once(__DIR__ . "/model/Message.model.php");
+include_once(__DIR__ . "/model/User.model.php");
+include_once(__DIR__ . "/controller/User.controller.php");
+
 //include all used models and controllers
 
 class RouterAPI extends APIHelper {
@@ -72,13 +75,6 @@ class RouterAPI extends APIHelper {
         if ($endpoint == "user") {
             $user = new UserController($_GET);
 
-            //ATTENDANCE
-            if ($action == "last-attendance"){
-                $return = $user->getLastAttendance();
-                $data = $return[0];
-                $code = $return[1];
-            }
-
             //ALL PROTECTED ENDPOINTS
             if ($this->security->isCallNotAllowed()) {
                 return $this->response($data, $code);
@@ -113,6 +109,11 @@ class RouterAPI extends APIHelper {
 
             if($action == "login"){
                 $return = $user->login();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "register"){
+                $return = $user->register();
                 $data = $return[0];
                 $code = $return[1];
             }
