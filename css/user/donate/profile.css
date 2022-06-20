@@ -1,0 +1,75 @@
+body {
+    color: #5a5a5a;
+  }
+  
+  /* HEADER */
+  img.red-life-logo{
+    width: 320px;
+    height: 67px;
+    padding: 5px;
+  }
+
+  img.profilePhoto{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+  }
+  
+  span.profileName{
+    margin-top: 10px;
+    letter-spacing: 1px;
+    color: black;
+    font-size: 15px;
+  }
+
+  .dropdown-menu{
+    position: absolute;
+    inset: 0px 0px auto 0px;
+    margin: 0px;
+    transform: translate(128px, 58px);
+}
+  .error-msg{
+  text-align: center;
+  margin: 10px;
+  font-size: small;
+  
+  }
+
+  /* FOOTER */
+  .website-footer {
+    padding: 2.5rem 0;
+    color: #727272;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+  }
+  .website-footer p:last-child {
+    margin-bottom: 0;
+  }
+
+    
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  @media (max-width: 100px) {
+    img.red-life-logo{
+      width: 310px;
+      height: 57px;
+      margin-left: 0px;
+    }
+  }
+
+  @media (max-width: 1500px) {
+    li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
+      margin-right: 25px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
+      margin-right: 0px;
+    }
+
+    .px-5 {
+        padding: 0px;
+    }
+  }

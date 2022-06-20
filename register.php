@@ -15,17 +15,28 @@
     <link rel="stylesheet" type="text/css" href="./css/main/register.css">
     
     <title>Registration | redLife.ph</title>
+	<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
 </head>
 <body>
 	<div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
 			<a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-				<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
-				<div>
-					<span class="header-title">philippine red cross cavite chapter</span><br>
-					<span class="header-subtitle">redLife.ph</span>
-				</div>
+				<img src="./res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
+
 			</a>
 			<div class="col-md-3 text-end">
 				<button type="button" class="btn btn-danger me-2 open-login-form">Login</button>
@@ -73,7 +84,7 @@
 						
 						<div class="col">
 							<label for="gender">Gender </label> 
-							<select id="gender" class="form-select">
+							<select id="gender"name = "gender" class="form-select">
 								<option selected disabled>Select</option>
 								<option>Male</option>
 								<option>Female</option>

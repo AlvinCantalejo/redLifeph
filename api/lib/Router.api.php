@@ -8,6 +8,7 @@ include_once(__DIR__ . "/helper/API.helper.php");
 include_once(__DIR__ . "/model/Message.model.php");
 include_once(__DIR__ . "/model/User.model.php");
 include_once(__DIR__ . "/controller/User.controller.php");
+include_once(__DIR__ . "/controller/Admin.controller.php");
 
 //include all used models and controllers
 
@@ -75,14 +76,54 @@ class RouterAPI extends APIHelper {
         if ($endpoint == "user") {
             $user = new UserController($_GET);
 
+            
+            //ALL PROTECTED ENDPOINTS
+            if ($this->security->isCallNotAllowed()) {
+                return $this->response($data, $code);
+            }
+            if($action == "get-time-slots"){
+                $return = $user->getTimeSlots();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "has-active-appointment"){
+                $return = $user->hasActiveAppointment();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "appointments"){
+                $return = $user->getAllAppointment();
+                $data = $return[0];
+                $code = $return[1];
+            }
+
+        }
+
+        if ($endpoint == "admin") {
+            $admin = new AdminController($_GET);
+
             //ALL PROTECTED ENDPOINTS
             if ($this->security->isCallNotAllowed()) {
                 return $this->response($data, $code);
             }
 
-        }
+            if($action == "donation-drives"){
+                $return = $admin->getAllDonationDrives();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "filter-user-role"){
+                $return = $admin->filterUserRole();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "participants"){
+                $return = $admin->getParticipants();
+                $data = $return[0];
+                $code = $return[1];
+            }
 
-        //INCLUDE HERE ENDPOINTS FOR ADMIN
+        }
 
         return $this->response($data, $code);
     }
@@ -131,11 +172,44 @@ class RouterAPI extends APIHelper {
             if ($this->security->isCallNotAllowed()) {
                 return $this->response($data, $code);
             }
-
+            if($action == "add-donation-date"){
+                $return = $user->addNewDonationDate();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "add-appointment"){
+                $return = $user->addNewAppointment();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "reschedule-appointment"){
+                $return = $user->rescheduleAppointment();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "cancel-appointment"){
+                $return = $user->cancelAppointment();
+                $data = $return[0];
+                $code = $return[1];
+            }
         }
 
         //INCLUDE HERE ENDPOINTS FOR ADMIN
-        
+        if ($endpoint == "admin") {
+            $admin = new AdminController($_POST);
+
+            if($action == "add-donation-drive"){
+                $return = $admin->addDonationDrive();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "update-donation-drive"){
+                $return = $admin->updateDonationDrive();
+                $data = $return[0];
+                $code = $return[1];
+            }
+
+        }
         return $this->response($data, $code);
     }
 }	

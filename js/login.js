@@ -56,9 +56,5 @@ function bindActionButtons(){
     });
     
 }
-
-function login(formData) {
-
-}
     
     

@@ -1,0 +1,475 @@
+body {
+    color: #5a5a5a;
+  }
+
+/* HEADER
+  -------------------------------------------------- */
+
+  img.red-life-logo{
+    width: 320px;
+    height: 67px;
+    padding: 5px;
+  }
+
+  .error-message{
+    color: red;
+  }
+/* BODY
+  -------------------------------------------------- */
+/* div.container-fluid{
+    margin-bottom: 70px;
+} */
+
+/* h1{
+    font-family: "Glacial Indifference";
+    text-align: center;
+} */
+
+img.profilePhoto{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+#msform fieldset .form-card {
+    background: white;
+    border: 0 none;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+    position: relative
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform fieldset .form-card {
+    text-align: left;
+    color: black;
+}
+
+#msform input,
+#msform textarea {
+    padding: 0px 8px 4px 8px;
+    border: none;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 16px;
+    letter-spacing: 1px
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    outline-width: 0
+}
+
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px
+}
+
+select.list-dt:focus {
+    border-bottom: 2px solid skyblue
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    border-radius: 0.5rem;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey;
+    padding: 5px;
+}
+
+#progressbar .active {
+    color: #000000
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 50%;
+    float: left;
+    position: relative
+}
+
+#progressbar #check:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: red
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000
+}
+
+.option-input:hover {
+    background: rgb(255, 191, 191)
+}
+
+.option-input:checked {
+    background: red;
+}
+
+.option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px
+}
+
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.25s;
+    -moz-animation: click-wave 0.25s;
+    animation: click-wave 0.25s;
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+    /*Checkbox*/
+        .container {
+            display: block;
+            position: relative;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-decoration: none;
+            font-weight: lighter;
+        }
+        
+        /* Hide the browser's default checkbox */
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            background-color: #eee;
+        }
+        
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+        
+        /* When the checkbox is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+            background-color: red;
+        }
+        
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        /* Show the checkmark when checked */
+        .container input:checked ~ .checkmark:after {
+            display: block;		
+        }
+
+        .container p{
+            margin-left: 20px;
+            margin-top: 0px;
+        }
+
+        div.fs-info, p.note{
+            font-size: 15px;
+        }
+
+    /*Donor Center*/
+
+        div.card{
+            border-radius: 10px;
+        }
+        
+        div.gallery {
+            margin-bottom: 10px;
+            position: relative;
+            border-radius: 10px;
+        }
+        
+        div.gallery:hover {
+            cursor: pointer;
+        }
+            
+        div.card:focus{
+            background-color: red;
+            color: white;
+        }
+
+        div.card span{
+            font-size: large;
+        }
+
+        p.card-text{
+            font-size: small;
+        }
+
+        .selected-donor-center
+        {
+            padding: 20px;
+            border:2px solid red;
+            border-radius: 10px;
+        }
+
+        /* The overlay effect (full height and width) - lays on top of the container and over the image */
+        .overlay {
+            position: absolute;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .3s ease;
+            background-color: black;
+            border-radius: 10px;
+        }
+        
+        /* When you mouse over the container, fade in the overlay icon*/
+        .gallery:hover .overlay {
+            opacity: .8;
+            color: white;
+        }
+        
+        /* The icon inside the overlay is positioned in the middle vertically and horizontally */
+        .icon {
+            color: white;
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .fa-lock:hover {
+            color: #eee;
+        }
+
+
+        div.desc {
+            padding: 5px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+    /* Date and Time */
+
+        /* body {
+            font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #efefef; }
+        
+        p {
+            color: #b3b3b3;
+            font-weight: 300; }
+        
+        h1, h2, h3, h4, h5, h6,
+        .h1, .h2, .h3, .h4, .h5, .h6 {
+            font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+        
+        a {
+            -webkit-transition: .3s all ease;
+            -o-transition: .3s all ease;
+            transition: .3s all ease; }
+            a, a:hover {
+            text-decoration: none !important; }
+        
+        .content {
+            padding: 7rem 0; }
+        
+        h2 {
+            font-size: 20px; }
+        
+        .form-control:active, .form-control:focus {
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none; } */
+        
+        
+    /*Confirmation*/
+
+    .modal-header {
+        background-color: red;
+        color: white;
+    }
+
+/* FOOTER 
+  -------------------------------------------------- */
+ .website-footer {
+  padding: 2.5rem 0;
+  color: #727272;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.website-footer p:last-child {
+  margin-bottom: 0;
+}
+
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  @media (max-width: 100px) {
+    img.red-life-logo{
+      width: 310px;
+      height: 57px;
+      margin-left: 0px;
+    }
+  }
+  @media (max-width: 1500px) {
+        li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
+            margin-right: 25px;
+        }
+    }
+  @media (max-width: 390px) {
+    .fs-title {
+        font-size: 20px;
+        color: #2C3E50;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-align: center
+    }
+    #msform fieldset .form-card {
+        padding: 15px;
+    }
+    .modal-content{
+        margin: 10px;
+    }
+
+    .modal-body p{
+        font-size: small;
+        margin-bottom: 0px;
+    }
+    .card-body .donor-center, .card-body .donor-center-address{
+        font-size: small;
+        text-align: center;
+    }
+    
+    li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
+        margin-right: 0px;
+    }
+  }
+

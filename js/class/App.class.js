@@ -1,5 +1,6 @@
 import CookieClass from "./Cookie.class.js";
 import ButtonHelper from "./Button.class.js";
+import User from "./../model/User.model.js";
 
 class App {
     
@@ -9,7 +10,7 @@ class App {
     }
     
     //CHECK IF LOGGED IN
-    static checkIfLoggedIn (){
+    static checkIfLoggedIn (userRole){
         var apiURL = App.getApiUrl();
         var endpoint = "user/check-if-logged-in";
         var api = apiURL + endpoint;
@@ -17,13 +18,25 @@ class App {
         $.ajax({
             url: api,
             type: 'POST',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Koauthorization', CookieClass.getCookie(User.TOKEN()));
-            },
             success: function (data) { 
+                return true;
             },
             error: function (error) { 
-                window.location.href = "../login.php?action=logout";
+                console.log(userRole, User.USER);
+                if(userRole == User.USER)
+                    window.location.href = "./../../../index.php";
+                else if(userRole == User.ADMIN)
+                    window.location.href = "./../../../login.php";
+            }
+        });
+    }
+    
+    static handlePageRestore () {
+        window.addEventListener( "pageshow", function ( event ) {
+            var historyTraversal = event.persisted;
+            if ( historyTraversal ) {
+              // Handle page restore
+              window.location.reload();
             }
         });
     }
@@ -77,6 +90,16 @@ class App {
             obj[data[key].split("=")[0]] = decodeURIComponent(data[key].split("=")[1]);
         }
         return obj;
+    }
+
+    static stringifyDate(date){
+        return new Date(new Date(date.replace(/-/g,"/"))).toDateString();
+    }
+
+    static index(id,array){
+        let index = array.findIndex(current => current.id == id);
+        let temp = array[index];
+        return temp;
     }
 
     //VALIUDATE ALERT MODALS
