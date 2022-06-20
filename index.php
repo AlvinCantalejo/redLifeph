@@ -9,9 +9,9 @@
     <meta name="robots" content="noindex,nofollow">
 
     <link rel="stylesheet" href="./res/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
-	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
+	  <link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
     <link rel = "stylesheet" type="text/css" href="./css/main/index.css">
-	<script src="./res/jquery/jquery-3.6.0.min.js"></script>
+	  <script src="./res/jquery/jquery-3.6.0.min.js"></script>
     <script src="./res/bootstrap/js/bootstrap.bundle.min.js"></script>
     <title>Welcome | redLife.ph</title>
 
@@ -33,23 +33,28 @@
   </head>
   <body>
     <main>
-      <div class="container">
+      <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-			  <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-				<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
-				<div>
-					<span class="header-title">philippine red cross cavite chapter</span><br>
-					<span class="header-subtitle">redLife.ph</span>
-				</div>
-			</a>
-			<div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-danger me-2 open-login-form">Login</button>
-				<button type="button" class="btn btn-danger open-register-form">Register</button>
-			</div>
+          <a href="index.php" class="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
+          <img src="./res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
+          </a>
+
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="index.php" class="nav-link px-2 link-dark home-nav"><strong>Home</strong></a></li>
+            <li><a href="donate.php" class="nav-link px-2 link-dark donate-nav">Donate</a></li>
+            <li><a href="request.php" class="nav-link px-2 link-dark request-nav">Request</a></li>
+            <li><a href="drives.php" class="nav-link px-2 link-dark drives-nav">Drives</a></li>
+            <li><a href="learn.php" class="nav-link px-2 link-dark learn-nav">Learn</a></li>
+          </ul>
+
+          <div class="col-md-3 text-end">
+          <button type="button" class="btn btn-danger me-2 open-login-form">Login</button>
+          <button type="button" class="btn btn-outline-danger open-register-form">Register</button>
+          </div>
         </header>
       </div>
 
-      <div class="carousel slide">
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -66,7 +71,7 @@
               <div class="carousel-caption text-start">
                 <h1>Every donation saves three lives!</h1>
                 <p>Manage your appointments in one convenient place.</p>
-                <p><a class="btn btn-lg btn-danger" href="register.php">Sign up today</a></p>
+                <p><a class="btn btn-lg btn-danger" href="register.php" role="button">Sign up today</a></p>
               </div>
             </div>
           </div>
@@ -95,7 +100,8 @@
               </div>
             </div>
           </div>
-        </div>
+          
+        </div> 
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>

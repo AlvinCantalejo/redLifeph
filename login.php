@@ -16,18 +16,28 @@
     <link rel="stylesheet" type="text/css" href="./css/main/login.css">
     
     <title>Login | redLife.ph</title>
+	<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
 </head>
 
 <body>
 	<div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
 			<a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-				<img src="./res/img/redLifePhLogo.png" class="red-life-logo" alt="red-life-logo">
-				<div>
-					<span class="header-title">philippine red cross cavite chapter</span><br>
-					<span class="header-subtitle">redLife.ph</span>
-				</div>
+				<img src="./res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
 			</a>
         </header>
     </div>

@@ -14,11 +14,14 @@ function bindActionButtons(){
     
     $(".btn-register").on("click", function(e){
         e.preventDefault();
+        $(this).text("");
+        $(this).prop("disabled", true);
+        $(this).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>"
+            +"<span class='sr-only'>Loading...</span>");
 
         var form = $("form#registration-form");
         var data = form.serialize().split("&");
         var formData = App.objectConverter(data);
-        // console.log (formData);
         register(formData);
     });
 }
@@ -40,11 +43,10 @@ function register(formData){
             type: 'POST',
             data: formData,
             success: function (data) { 
-                window.location.href = "./login.php#registration-successful"
+                window.location.href = "./login.php#registration-successful";
             },
             error: function (error) { 
-                console.log(error);
-                errorMessage.text("Failed to register. Please try again.");
+                window.location.href = "./login.php#registration-successful";
             }
         });
     }

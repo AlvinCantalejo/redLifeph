@@ -1,0 +1,108 @@
+body {
+    color: #5a5a5a;
+  }
+
+  /* HEADER */
+  img.red-life-logo{
+    width: 320px;
+    height: 67px;
+    padding: 5px;
+  }
+
+/* BODY */
+
+div.bg-image{
+  background-image: url('./../../res/img/donorpage-background.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 85vh;
+  align-items: center;
+}
+
+h1{
+  text-transform: uppercase;
+  font-weight:500;
+  font-size: 150px;
+  margin-top: -20px;
+  color: red;
+}
+
+h6{
+    text-transform: uppercase;
+    font-weight:500;
+    font-size: 80px;
+    margin-left: 10px;
+    margin-bottom: -50px;
+    color: white;
+  }
+
+img.logo {
+	width: 150px;
+	height: 150px;
+}
+
+.banner{
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+/*
+ * FOOTER
+ */
+ .website-footer {
+  padding: 2.5rem 0;
+  color: #727272;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.website-footer p:last-child {
+  margin-bottom: 0;
+}
+
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  @media (max-width: 100px) {
+    img.red-life-logo{
+      width: 310px;
+      height: 57px;
+      margin-left: 0px;
+    }
+  }
+
+  @media (max-width: 1500px) {
+    a.home-nav, a.donate-nav, a.request-nav, a.drives-nav, a.learn-nav{
+      margin-right: 25px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    a.home-nav, a.donate-nav, a.request-nav, a.drives-nav, a.learn-nav{
+      margin-right: 0px;
+    }
+
+    h1{
+      font-size: 80px;
+    }
+
+    h6{
+        font-size: 50px;
+        margin-bottom: 5px;
+        margin-left: 0px;
+    }
+    
+    .banner{
+      padding: 25px;
+      text-align: center;
+    }
+
+    button{
+      margin-top: 10px;
+    }
+
+    .book{
+      width:250px;
+  }
+}

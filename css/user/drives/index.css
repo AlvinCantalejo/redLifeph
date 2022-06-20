@@ -1,0 +1,143 @@
+body {
+    color: #5a5a5a;
+  }
+
+  /* HEADER */
+  img.red-life-logo{
+    width: 320px;
+    height: 67px;
+    padding: 5px;
+  }
+
+  img.profilePhoto{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+  }
+  
+  span.profileName{
+    margin-top: 10px;
+    letter-spacing: 1px;
+    color: black;
+    font-size: 15px;
+  }
+
+  .dropdown-menu{
+    position: absolute;
+    inset: 0px 0px auto 0px;
+    margin: 0px;
+    transform: translate(128px, 58px);
+}
+
+/* BODY */
+
+div.bg-image{
+  background-image: url('../../../res/img/donation-drive.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 85vh;
+  align-items: center;
+}
+
+/* .bd-placeholder-img{
+    background-image: url('../../../res/img/mobile-blood-donation.jpg');
+} */
+
+.container{
+    padding: 48px;
+}
+
+h1{
+    text-transform: uppercase;
+    font-weight:500;
+    font-size: 80px;
+    margin-top: -20px;
+    color: red;
+}
+
+h6{
+    text-transform: uppercase;
+    font-weight:500;
+    font-size: 80px;
+    margin-bottom: -5px;
+    color: white;
+  }
+
+img.logo {
+	width: 150px;
+	height: 150px;
+}
+
+.banner{
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+/*
+ * FOOTER
+ */
+ .website-footer {
+  padding: 2.5rem 0;
+  color: #727272;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.website-footer p:last-child {
+  margin-bottom: 0;
+}
+
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  @media (max-width: 100px) {
+    img.red-life-logo{
+      width: 310px;
+      height: 57px;
+      margin-left: 0px;
+    }
+  }
+
+  @media (max-width: 300px){
+    .website-footer a{
+        width: 100%;
+    }
+  }
+
+  @media (max-width: 1500px) {
+    li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
+      margin-right: 25px;
+    }
+  }
+
+
+  @media (max-width: 550px) {
+    h6, h1{
+        font-size: 40px;
+        margin-bottom: 10px;
+        margin-left: 0px;
+    }
+
+    .container{
+        padding: 20px;
+    }
+
+    li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
+      margin-right: 0px;
+    }
+    
+    .banner{
+      padding: 25px;
+      text-align: center;
+    }
+
+    button{
+      margin-top: 10px;
+    }
+
+    .book{
+      width:250px;
+    }
+
+}

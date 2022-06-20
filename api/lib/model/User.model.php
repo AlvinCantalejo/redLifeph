@@ -22,8 +22,10 @@ class User extends DBHelper{
     }   
 
     public function loginUser($email, $userStatus){
-        $sql = "SELECT r_user.*
+        $sql = "SELECT r_user.*, r_donor.id as id_donor
                 FROM r_user 
+                LEFT JOIN r_donor
+                ON r_user.id = r_donor.id_user
                 WHERE r_user.email = ? 
                 AND r_user.user_status = ?  
                 LIMIT 1";
@@ -48,10 +50,9 @@ class User extends DBHelper{
 
     public function filterUserRole ($user_role) {
 
-        $user_status = "Deleted";
-        $sql = "SELECT * FROM c_user WHERE user_role = ? AND user_status <> ?";
+        $sql = "SELECT * FROM r_user WHERE user_role = ?";
         $statement = $this->db->prepare ($sql);
-        $statement->bind_param('ss', $user_role, $user_status);
+        $statement->bind_param('s', $user_role);
         $statement->execute();
         $dataset = $statement->get_result();
         return $dataset;

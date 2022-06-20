@@ -11,7 +11,7 @@ class IDHelper
      * @param string $name
      * @return string
      */
-    static function generateDonorID(string $name, string $birthDate) : string
+    static function generateDonorID(string $name) : string
     {   
         //Generate a 3-digit random number.
         $RANDOM_NUMBER_MIN = 100;
@@ -26,9 +26,10 @@ class IDHelper
             'UTF-8');
         }
         $initials = IDHelper::makeInitialsFromSingleWord($name);
-        $stringBirthday = IDHelper::cleanStringDate($birthDate);
+        date_default_timezone_set('Asia/Manila');
+        $date = date('Ymd');
 
-        $donorID = $initials . "-" . $stringBirthday . "-" . $randomNumber;
+        $donorID = $initials . "-" . $date . "-" . $randomNumber;
         return $donorID;
 
     }
@@ -60,5 +61,20 @@ class IDHelper
     {
         return str_replace('-', '', $date);  
         
+    }
+
+    static function generateAppointmentID() : string
+    {   
+        //Generate a 3-digit random number.
+        $RANDOM_NUMBER_MIN = 100;
+        $RANDOM_NUMBER_MAX = 999;
+        $randomNumber = rand($RANDOM_NUMBER_MIN, $RANDOM_NUMBER_MAX);
+
+        date_default_timezone_set('Asia/Manila');
+        $date = date('Ymd');
+
+        $donorID = $date . "-" . $randomNumber;
+        return $donorID;
+
     }
 }
