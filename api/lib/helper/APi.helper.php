@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
     @desc: API wrapper for APIClass
 */

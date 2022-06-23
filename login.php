@@ -15,7 +15,8 @@
 
     <link rel="stylesheet" type="text/css" href="./css/main/login.css">
     
-    <title>Login | redLife.ph</title>
+    <title>redLife.ph | Login</title>
+
 	<style>
       .bd-placeholder-img {
         font-size: 1.125rem;

@@ -14,7 +14,7 @@
 	<link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="./css/main/register.css">
     
-    <title>Registration | redLife.ph</title>
+    <title>redLife.ph | Registration</title>
 	<style>
       .bd-placeholder-img {
         font-size: 1.125rem;
