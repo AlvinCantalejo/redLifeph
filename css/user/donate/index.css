@@ -98,7 +98,7 @@ img.logo {
     }
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 500px) {
     li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
       margin-right: 0px;
     }

@@ -2,14 +2,47 @@ body {
     color: #5a5a5a;
   }
 
-  /* HEADER */
+/* HEADER 
+-------------------------------------------------- */
+header{
+  background-color: #890000;
+} 
+
 img.red-life-logo{
-	width: 320px;
-	height: 67px;
+	width: 325px;
+	height: 72px;
 	padding: 5px;
 }
 
-/* BODY */
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.navbar-toggler{
+  color: black;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* BODY 
+-------------------------------------------------- */
 
 .carousel-image-1{
     width: "100%";
@@ -31,38 +64,38 @@ img.red-life-logo{
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
-  /* Carousel base class */
-  .carousel {
-    margin-bottom: 4rem;
-  }
-  /* Since positioning the image, we need to help out the caption */
-  .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-  }
-  
-  /* Declare heights because of positioning of img element */
-  .carousel-item {
-    height: 40rem;
-  }
-  .carousel-item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 40rem;
-  }
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
 
-  .slide-title{
-    font-family: "Chewy", sans-serif;
-	  color: white;
-  }
-  
-  /* Center align the text within the four columns below the carousel */
-  .buttons .col-lg-3 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 40rem;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 40rem;
+}
+
+.slide-title{
+  font-family: "Chewy", sans-serif;
+  color: white;
+}
+
+/* Center align the text within the four columns below the carousel */
+.buttons .col-lg-3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
 
 .buttons .button-subtitle{
 	margin-top: 10px;
@@ -78,10 +111,10 @@ img.logo {
 	height: 150px;
 }
 
-/*
- * FOOTER
- */
- .website-footer {
+/* FOOTER
+-------------------------------------------------- */
+
+.website-footer {
   padding: 2.5rem 0;
   color: #727272;
   text-align: center;
@@ -91,28 +124,83 @@ img.logo {
 .website-footer p:last-child {
   margin-bottom: 0;
 }
-
   
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
-  
-  @media (min-width: 40em) {
-    /* Bump up size of carousel content */
-    .carousel-caption p {
-      margin-bottom: 1.25rem;
-      font-size: 1.25rem;
-      line-height: 1.4;
-    }
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 1500px) {
+  li{
+   margin-right: 30px;
+  }
+  ul.navbar-nav{
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 1400px) {
+  a.btn-request, a.btn-learn{
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1300px) {
+  ul.navbar-nav{
+    padding-right: 0px;
+  }
+}
+
+@media (max-width: 1200px) {
+  a.btn-request, a.btn-learn{
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 1100px) {
+  ul.navbar-nav{
+    padding-right: 0px;
+  }
+}
+
+@media (max-width: 999px) {
+  li{
+    margin-right: 0px;
+   }
+}
+
+@media (max-width: 550px) {
+  img.red-life-logo{
+    width: 250px;
   }
 
-  @media (max-width: 1500px) {
-    li{
-      margin-right: 25px;
-    }
+  ul.navbar-nav{
+    padding-right: 0px;
   }
 
-  @media (max-width: 390px) {
-    li{
-      margin-right: 0px;
-    }
+  li{
+    margin-right: 0px;
+   }
+}
+
+@media (max-width: 300px) {
+  img.red-life-logo{
+    width: 180px;
   }
+
+  ul.navbar-nav{
+    padding-right: 0px;
+  }
+
+  li{
+    margin-right: 0px;
+   }
+}
+

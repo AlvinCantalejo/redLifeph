@@ -9,6 +9,7 @@
     <meta name="robots" content="noindex,nofollow">
 
     <link rel="stylesheet" href="./res/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 	  <link rel="stylesheet" media="screen" href="./res/font/font.css" type="text/css"/>
     <link rel = "stylesheet" type="text/css" href="./css/main/index.css">
 	  <script src="./res/jquery/jquery-3.6.0.min.js"></script>
@@ -32,28 +33,42 @@
     </style>
   </head>
   <body>
-    <main>
-      <div class="container-fluid">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-          <a href="index.php" class="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
-          <img src="./res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
-          </a>
-
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="index.php" class="nav-link px-2 link-dark home-nav"><strong>Home</strong></a></li>
-            <li><a href="donate.php" class="nav-link px-2 link-dark donate-nav">Donate</a></li>
-            <li><a href="request.php" class="nav-link px-2 link-dark request-nav">Request</a></li>
-            <li><a href="drives.php" class="nav-link px-2 link-dark drives-nav">Drives</a></li>
-            <li><a href="learn.php" class="nav-link px-2 link-dark learn-nav">Learn</a></li>
-          </ul>
-
-          <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-danger me-2 open-login-form">Login</button>
-          <button type="button" class="btn btn-outline-danger open-register-form">Register</button>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-light shadow py-3">
+        <div class="container-fluid">
+          <a href="index.php" class="d-flex align-items-center text-decoration-none">
+            <img src="./res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
+          </a>         
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list" style="font-size: 2rem;"></i>
+          </button>
+          <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+            <ul class="navbar-nav m-auto"><hr>
+              <li class="nav-item">
+                <a class="nav-link active link-danger" aria-current="page" href="index.php">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="donate.php">Donate</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="request.php">Request</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="drives.php">Mobile Donation Drive</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="learn.php">Learn</a>
+              </li>
+            </ul><br>
+            <form class="d-flex justify-content-center" role="search">
+              <button type="button" class="btn btn-danger me-2 open-login-form">Login</button>
+              <button type="button" class="btn btn-outline-danger open-register-form">Register</button>
+            </form>
           </div>
-        </header>
-      </div>
-
+        </div>
+      </nav>
+    </header>
+    <main>
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -125,7 +140,7 @@
           <div class="col-lg-3">
             <img src="./res/img/requestLogo.png" class="logo" alt="request-logo" id="btn-request" name="btn-request"><br><br>
             <p>Schedule request for blood products</p>
-            <p><a class="btn btn-outline-danger" href="./module/user/request/index.php">Request &raquo;</a></p>
+            <p><a class="btn btn-outline-danger btn-request" href="./module/user/request/index.php">Request &raquo;</a></p>
             
           </div>
           <div class="col-lg-3">
@@ -137,7 +152,7 @@
           <div class="col-lg-3">
             <img src="./res/img/learnLogo.png" class="logo" alt="learn-logo" id="btn-learn" name="btn-learn"><br><br>
             <p>Discover how blood donation works</p>
-            <p><a class="btn btn-outline-danger" href="./module/user/learn/index.php">Learn &raquo;</a></p>
+            <p><a class="btn btn-outline-danger btn-learn" href="./module/user/learn/index.php">Learn &raquo;</a></p>
           </div>
         </div>
       </div>
