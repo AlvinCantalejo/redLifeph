@@ -19,10 +19,10 @@ class EmailHelper extends EmailClass {
     var $SMTP_AUTH = true;
     var $SMTP_SECURE = "tls";
 
-    var $USER_NAME = "donation-redlifeph@outlook.ph";
+    var $USER_NAME = "donate-redlifeph@outlook.ph";
     var $PASSWORD = "batangredcross2022";
     
-    var $EMAIL_FROM1 = "donation-redlifeph@outlook.ph";
+    var $EMAIL_FROM1 = "donate-redlifeph@outlook.ph";
     var $EMAIL_FROM2 = "redLifeph";
 
     var $REGISTRATION_EMAIL_SUBJECT = "Thank you for registering to redLifeph! Your initiative saves life.";
