@@ -6,7 +6,7 @@ class App {
     
     //API URL
     static getApiUrl (){
-        return "http://localhost/likhaph/redlife.ph/api/";
+        return "https://redlifeph.herokuapp.com/api/";
     }
     
     //CHECK IF LOGGED IN
