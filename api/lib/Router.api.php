@@ -4,7 +4,7 @@
 */
 
 include_once(__DIR__ . "/helper/Session.helper.php");
-include_once(__DIR__ . "/helper/API.helper.php");
+include_once(__DIR__ . "/helper/APi.helper.php");
 include_once(__DIR__ . "/model/Message.model.php");
 include_once(__DIR__ . "/model/User.model.php");
 include_once(__DIR__ . "/controller/User.controller.php");
