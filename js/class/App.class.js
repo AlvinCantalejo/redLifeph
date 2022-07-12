@@ -22,7 +22,6 @@ class App {
                 return true;
             },
             error: function (error) { 
-                console.log(userRole, User.USER);
                 if(userRole == User.USER)
                     window.location.href = "/index.php";
                 else if(userRole == User.ADMIN)

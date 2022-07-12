@@ -58,6 +58,7 @@ class EmailClass{
                 ." <strong>Donation Center:</strong> " . $AdditionalDetails['appointment_location']."<br>"
                 ." <strong>Address:</strong> Philippine Red Cross - Cavite Chapter Dasmariñas Branch, Emilio Aguinaldo Highway, Dasmarinas City, Cavite, Philippines<br><br>"
                 ."Learn more about blood donation, do's and dont's and many more <a href='https://redlifeph.herokuapp.com/learn.php'>here</a>. <br>"
+
                 ."Thank you and see you there, life saver!"
                 ."<br><strong>-redLifeph</strong>";
                 break;
