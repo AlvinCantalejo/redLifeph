@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
 
+	<link rel="icon" href="./res/img/favicon.svg">
+
     <link href="./res/bootstrap/css/bootstrap.min.css"  rel="stylesheet">
 	<script src="./res/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./res/jquery/jquery-3.6.0.min.js"></script>
@@ -84,7 +86,7 @@
 						
 						<div class="col">
 							<label for="gender">Gender </label> 
-							<select id="gender"name = "gender" class="form-select">
+							<select id="gender" name="gender" class="form-select">
 								<option selected disabled>Select</option>
 								<option>Male</option>
 								<option>Female</option>
@@ -114,10 +116,6 @@
 			</div>
 		</div>
   	</div>
-
-	<?php
-    	include_once("./module/components/footer.php");
-    ?>
 
 	<?php
 		include_once("./module/components/alert-modal.php");

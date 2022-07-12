@@ -7,6 +7,9 @@ include_once(__DIR__ . "/../helper/Email.helper.php");
 include_once(__DIR__ . "/../model/User.model.php");
 include_once(__DIR__ . "/../model/Schedule.model.php");
 include_once(__DIR__ . "/../model/Appointment.model.php");
+include_once(__DIR__ . "/../model/Request.model.php");
+include_once(__DIR__ . "/../model/Donation.model.php");
+include_once(__DIR__ . "/../model/Drive.model.php");
 
 class UserController {
 
@@ -19,6 +22,9 @@ class UserController {
 	var $scheduleModel;
 	var $attendanceModel;
 	var $appointmentModel;
+	var $donationModel;
+	var $requestModel;
+	var $driveModel;
     /**
         @desc: Init class
     */
@@ -27,8 +33,11 @@ class UserController {
         $this->emailHelper = new EmailHelper();
         $this->params = $params;//$_POST, $_GET
         $this->userModel = new User();
+        $this->driveModel = new Drive();
         $this->scheduleModel = new Schedule();
+        $this->requestModel = new Request();
         $this->appointmentModel = new Appointment();
+        $this->donationModel = new Donation();
     }
 
     //===========================================CREDENTIALS===================================================================
@@ -85,6 +94,7 @@ class UserController {
         $fullName = $firstName . " " . $lastName;
         $donorID = IDHelper::generateDonorID($fullName);
         $gender = ParamHelper::param($this->params, User::GENDER);
+        $bloodType = ParamHelper::param($this->params, User::BLOOD_TYPE, "");
         $encPassword = md5($password);
 
         $excecuted = $this->userModel->register(    $firstName,
@@ -94,7 +104,8 @@ class UserController {
                                                     $encPassword,
                                                     $donorID,
                                                     $birthDate,
-                                                    $gender);
+                                                    $gender,
+                                                    $bloodType);
         $data = new Message("User not added!");
 
         if ($excecuted) {
@@ -137,7 +148,7 @@ class UserController {
     * */
     public function resetUserPassword() {
 
-        $id = ParamHelper::param($this->params, User::ID);
+        $id = SessionHelper::get(User::ID);
         $password = ParamHelper::param($this->params, User::PASSWORD);
         $encPassword = md5($password);
 
@@ -158,21 +169,23 @@ class UserController {
 	 * */
     public function updateProfile () {
 
-        $id = ParamHelper::param($this->params, User::ID);
+        $id = SessionHelper::get(User::ID);
+        $idDonor = SessionHelper::get(User::ID_DONOR);
         $firstName = ParamHelper::param($this->params, User::FIRST_NAME);
         $lastName = ParamHelper::param($this->params, User::LAST_NAME);
         $email = ParamHelper::param($this->params, User::EMAIL);
         $phoneNumber = ParamHelper::param($this->params, User::PHONE_NUMBER);
-        $userStatus = ParamHelper::param($this->params, User::USER_STATUS);
-        $userRole = ParamHelper::param($this->params, User::USER_ROLE);
+        $birthDate = ParamHelper::param($this->params, User::BIRTH_DATE);
+        $gender = ParamHelper::param($this->params, User::GENDER);
  
         $excecuted = $this->userModel->updateProfile($id,
+                                                    $idDonor,
                                                     $firstName,
                                                     $lastName,
                                                     $email,
                                                     $phoneNumber,
-                                                    $userStatus,
-                                                    $userRole);
+                                                    $birthDate,
+                                                    $gender);
 
         $data = new Message("User not updated!");
         
@@ -225,11 +238,11 @@ class UserController {
 	    @name: "user/appointments"
 	    @desc: fetch all active appointments
 	 * */
-    public function getAllAppointment () {
+    public function getAppointments () {
 
         $idDonor = SessionHelper::get(Appointment::ID_DONOR);
 
-        $dataset = $this->appointmentModel->getAllAppointment($idDonor);
+        $dataset = $this->appointmentModel->getAppointments($idDonor);
         $data = new Message("No data found");
         if ($dataset->num_rows > 0) {
             unset($data);
@@ -272,10 +285,14 @@ class UserController {
 
         $id = IDHelper::generateAppointmentID();
         $idDonor = ParamHelper::param($this->params, Appointment::ID_DONOR);
+        $idDonationDrive = ParamHelper::param($this->params, Appointment::ID_DONATION_DRIVE);
         $appointmentType = ParamHelper::param($this->params, Appointment::APPOINTMENT_TYPE);
         $appointmentDate = ParamHelper::param($this->params, Appointment::APPOINTMENT_DATE);
         $appointmentTime = ParamHelper::param($this->params, Appointment::APPOINTMENT_TIME);
         $appointmentLocation = ParamHelper::param($this->params, Appointment::APPOINTMENT_LOCATION);
+
+        $eventTitle = ParamHelper::param($this->params, "event_title");
+        $eventDetails = ParamHelper::param($this->params, "event_details");
 
         
         //preparing appointment information
@@ -283,9 +300,12 @@ class UserController {
         $appointmentDetails['appointment_date'] = $appointmentDate;
         $appointmentDetails['appointment_time'] = $appointmentTime;
         $appointmentDetails['appointment_location'] = $appointmentLocation;
+        $appointmentDetails['event_title'] = $eventTitle;
+        $appointmentDetails['event_details'] = $eventDetails;
 
         $excecuted = $this->appointmentModel->addNewAppointment($id,
                                                                 $idDonor,
+                                                                $idDonationDrive,
                                                                 $appointmentType,
                                                                 $appointmentDate,
                                                                 $appointmentTime,
@@ -295,7 +315,10 @@ class UserController {
         if ($excecuted) {
             unset($data);
             $data['message'] = "Appointment is scheduled sucessfully.";
-            $data["email-verification"] = $this->emailHelper->sendAppointmentNotification("appointment", $email, $firstName." ".$lastName, $appointmentDetails );
+            if($appointmentType == "in-house")
+                $data["email-verification"] = $this->emailHelper->sendAppointmentNotification("appointment", $email, $firstName." ".$lastName, $appointmentDetails );
+            else
+                $data["email-verification"] = $this->emailHelper->sendAppointmentNotification("drive-registration", $email, $firstName." ".$lastName, $appointmentDetails );
             return array($data, 200);
         }
         return array($data, 604);
@@ -354,4 +377,120 @@ class UserController {
         }
         return array($data, 604);
     }
+
+
+    /**
+	    @name: "user/donations"
+	    @desc: fetch all donations
+	 * */
+    public function getAllDonations () {
+
+        $idDonor = SessionHelper::get(User::ID_DONOR);
+        $dataset = $this->donationModel->getDonations($idDonor);
+        
+        $data = new Message("No data found");
+        if ($dataset->num_rows > 0) {
+            unset($data);
+            $data = [];
+            while ($row = mysqli_fetch_assoc($dataset)) {
+                $data[] = $row;
+            }
+            return array($data, 200);
+        }
+        return array($data, 603);
+    }
+
+//DONATION DRIVES
+
+    /**
+        @name: "user/donation-drives"
+        @desc: gets all donation drives
+        @usage: display donation drives table
+    * */
+    public function getAllDonationDrives()
+    {
+        
+        $dataset = $this->driveModel->getAllDonationDrives();
+        $data = new Message("No data found.");
+
+        if ($dataset->num_rows > 0) {
+            unset($data);
+            $data = [];
+            while ($row = mysqli_fetch_assoc($dataset)) {
+                $data[] = $row;
+            }
+            return array($data, 200);
+        }
+        return array($data, 603);
+    }
+
+    /**
+        @name: "user/donation-drive="
+        @desc: gets info of a donation drive
+        @usage: display donation drive in confirm page
+    * */
+    public function getDonationDrive()
+    {
+        $id = ParamHelper::param($this->params, Drive::ID);
+
+        $dataset = $this->driveModel->getDonationDrive($id);
+        $data = new Message("No data found.");
+
+        if ($dataset->num_rows > 0) {
+            unset($data);
+            while ($row = mysqli_fetch_assoc($dataset)) {
+                $data = $row;
+            }
+            return array($data, 200);
+        }
+        return array($data, 603);
+    }
+
+    /**
+        @name: "user/drive-registration"
+        @desc: gets drive registration of user
+        @usage: render going button for registered
+    * */
+    public function getDriveRegistration()
+    {
+        $idDonor = SessionHelper::get(Appointment::ID_DONOR, "no_donor");
+
+        $dataset = $this->appointmentModel->getDriveRegistration($idDonor);
+        $data = new Message("No data found.");
+
+        if ($dataset->num_rows > 0) {
+            unset($data);
+            while ($row = mysqli_fetch_assoc($dataset)) {
+                $data[] = $row;
+            }
+            return array($data, 200);
+        }
+        return array($data, 603);
+    }
+
+    //REQUESTS
+
+    /**
+        @name: "user/request"
+        @desc: gets all donation drives
+        @usage: display donation drives table
+    * */
+    public function trackRequest()
+    {
+        $releaseNumber = ParamHelper::param($this->params, Request::RELEASE_NUMBER);
+        $dataset = $this->requestModel->trackRequest($releaseNumber);
+        $data = new Message("No data found.");
+
+        if ($dataset->num_rows > 0) {
+            unset($data);
+            $data = [];
+            while ($row = mysqli_fetch_assoc($dataset)) {
+                $data = $row;
+            }
+            return array($data, 200);
+        }
+        return array($data, 603);
+    }
+
+
 }

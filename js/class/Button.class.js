@@ -13,6 +13,10 @@ class ButtonHelper {
     static editButton(id){
         return "<button class='btn btn-sm btn-warning edit-button' attr='"+ id +"'>Edit</button>";
     }
+    
+    static updateButton(id){
+        return "<button class='btn btn-sm btn-warning update-button' attr='"+ id +"'>Update</button>";
+    }
 
     static deleteButton(id){
         return "<button class='btn btn-sm btn-danger delete-button' attr='"+ id +"'>Delete</button>";
@@ -20,6 +24,9 @@ class ButtonHelper {
 
     static rescheduleButton(id){
         return "<button class='btn btn-sm btn-warning reschedule-button' attr='"+ id +"'>Reschedule</button>";
+    }
+    static disabledRescheduleButton(id){
+        return "<button class='btn btn-sm btn-warning reschedule-button' attr='"+ id +"' disabled>Reschedule</button>";
     }
 
     static cancelButton(id){

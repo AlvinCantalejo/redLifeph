@@ -4,12 +4,8 @@ body {
 
 /* HEADER 
 -------------------------------------------------- */
-header{
-  background-color: #890000;
-} 
-
 img.red-life-logo{
-	width: 325px;
+	width: 250px;
 	height: 72px;
 	padding: 5px;
 }
@@ -43,22 +39,37 @@ img.red-life-logo{
 
 /* BODY 
 -------------------------------------------------- */
-div.bg-image{
-  background-image: url('./../../res/img/learn-background.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 85vh;
-  align-items: center;
+.color-overlay{
+  width: 100%;
+  height: 100%;
+  background-color: black ;
+  opacity: .7;
+  position: absolute;
 }
 
-/* .container{
-    padding: 48px;
-} */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 9rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 40rem;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40rem;
+  min-width: 100%;
+}
 
 h1{
     text-transform: uppercase;
-    font-weight:500;
     font-size: 80px;
     margin-top: -20px;
     color: red;
@@ -66,21 +77,10 @@ h1{
 
 h6{
     text-transform: uppercase;
-    font-weight:500;
     font-size: 80px;
     margin-bottom: -5px;
     color: white;
   }
-
-img.logo {
-	width: 150px;
-	height: 150px;
-}
-
-.banner{
-  padding-left: 200px;
-  padding-right: 200px;
-}
 
 /* FOOTER
  -------------------------------------------------- */
@@ -95,17 +95,16 @@ img.logo {
   margin-bottom: 0;
 }
 
+.col-12 img{
+  width: 40px;
+  height: 40px;
+}
   
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
-@media (max-width: 1500px) {
+@media (max-width: 2000px) {
   li{
    margin-right: 30px;
-  }
-  
-  ul.navbar-nav{
-    padding-right: 100px;
   }
 }
 
@@ -116,68 +115,92 @@ img.logo {
 }
 
 @media (max-width: 1100px) {
-  ul.navbar-nav{
-    padding-right: 0px;
+  li{
+    margin-right: 10px;
   }
 }
 
 @media (max-width: 999px) {
-  li{
-    margin-right: 0px;
+  h1{
+    font-size: 60px;
+    margin-top: 20px;
+  }
+
+  h6{
+    font-size: 60px;
+    margin-bottom: -40px;
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 767px) {
+  h1{
+    font-size: 50px;
+    margin-top: 30px;
+  }
+
+  h6{
+    font-size: 50px;
+    margin-bottom: -40px;
+  }
+}
+
+@media (max-width: 628px) {
+  h1{
+    font-size: 45px;
+    margin-top: 30px;
+  }
+
+  h6{
+    font-size: 45px;
+    margin-bottom: -40px;
+  }
+}
+
+@media (max-width: 580px) {
   img.red-life-logo{
     width: 250px;
   }
 
-  ul.navbar-nav{
-    padding-right: 0px;
-  }
-
   li{
     margin-right: 0px;
   }
 
-  h6, h1{
+  h1{
     font-size: 40px;
-    margin-bottom: 10px;
-    margin-left: 0px;
+    margin-top: 30px;
   }
 
-  .container{
-      padding: 20px;
+  h6{
+    font-size: 40px;
+    margin-bottom: -40px;
   }
 
-  .banner{
-    padding: 25px;
-    text-align: center;
+  .col-12 img{
+    width: 25px;
+    height: 25px;
   }
 
-  button{
-    margin-top: 10px;
+  h5{
+    font-size:medium;
   }
 
-  .book{
-    width:250px;
+  .carousel-caption {
+    bottom: 9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  img.red-life-logo{
+    width: 200px;
+  }
+
+  .carousel-caption {
+    bottom: 6rem;
   }
 }
 
 @media (max-width: 300px) {
   img.red-life-logo{
     width: 180px;
-  }
-
-  ul.navbar-nav{
-    padding-right: 0px;
-  }
-
-  li{
-    margin-right: 0px;
-  }
-   
-  .website-footer a{
-    width: 100%;
   }
 }

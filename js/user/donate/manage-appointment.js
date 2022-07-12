@@ -108,13 +108,14 @@ function displayTable(appointments) {
     let appointmentTableRow = "";
     if (appointments.length <= 0) {
         appointmentTableRow += "<tr>";
-        appointmentTableRow += "<tr><td colspan='6'>No records found</td></tr>";
+        appointmentTableRow += "<tr><td colspan='6'>No incoming appointments!</td></tr>";
         appointmentTableRow += "</tr>";
     } else {
         for (var i = 0; i < appointments.length; i++) {
             let appointment = appointments[i];
 
             let id = appointment.id;
+            let appointmentType = appointment.appointment_type;
             let appointmentLocation = appointment.appointment_location;
             let appointmentDate = App.stringifyDate(appointment.appointment_date);
             let appointmentTime = appointment.appointment_time;
@@ -125,10 +126,16 @@ function displayTable(appointments) {
             appointmentTableRow += TableHelper.addData(   "<strong>" +appointmentLocation + "</strong></br>" + 
                                                             appointmentDate + " | " + appointmentTime + "</br>" + 
                                                             "<em>" + appointmentStatus + "</em>");
-
-            appointmentTableRow += TableHelper.addButton(
-                ButtonHelper.rescheduleButton(id)
-            )
+            if(appointmentType == Appointment.DONATION_DRIVE){
+                appointmentTableRow += TableHelper.addButton(
+                    ButtonHelper.disabledRescheduleButton(id)
+                )
+            }else{
+                appointmentTableRow += TableHelper.addButton(
+                    ButtonHelper.rescheduleButton(id)
+                )
+            }
+            
             appointmentTableRow += TableHelper.addButton(
                 ButtonHelper.cancelButton(id)
             )
@@ -140,9 +147,12 @@ function displayTable(appointments) {
 
 
 function renderProfileDetails (){
+    
     let firstName = CookieClass.getCookie(User.FIRST_NAME);
     let lastName = CookieClass.getCookie(User.LAST_NAME);
+    let email = CookieClass.getCookie(User.EMAIL);
     $(".profileName").text(firstName + " " + lastName);
+    $(".email-address").text(email);
 }
 
 

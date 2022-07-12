@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="./../../../res/img/favicon.svg">
+
 	<!-- External Links -->
     <link rel="stylesheet" href="../../../res/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,59 +24,52 @@
 	<script src="../../../res/external/js/owl.carousel.min.js"></script>
 	<script src="../../../res/icons/icons.js"></script>
 
-
 	<!-- Local CSS-->
 	<link rel="stylesheet" type="text/css" href="../../../css/user/donate/profile.css">
 
     <title>Donate | Manage Profile</title>
   </head>
   <body>
-    <main>
-     <div class="container-fluid">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-          <a href="index.php" class="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
-            <img src="../../../res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
-          </a>
-
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="home-nav"><a href="../../../module/user/index.php" class="nav-link px-2 link-dark">Home</a></li>
-            <li class="donate-nav"><a href="../../../module/user/donate/index.php" class="nav-link px-2 link-dark"><strong>Donate</strong></a></li>
-            <li class="request-nav"><a href="../../../module/user/request/index.php" class="nav-link px-2 link-dark">Request</a></li>
-            <li class="drives-nav"><a href="../../../module/user/drives/index.php" class="nav-link px-2 link-dark">Drives</a></li>
-            <li class="learn-nav"><a href="../../../module/user/learn/index.php" class="nav-link px-2 link-dark">Learn</a></li>
-          </ul>
-
-          <div class="col-md-3 text-end">
-            <div class="p-2 bd-highlight">
-              <div class="dropdown text-end">
-                <span class="profileName">Profile Name</span>
-                <img  src="../../../res/img/loginIcon.png" class="profilePhoto dropdown-toggle" alt="profile-photo"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="../donate/index.php">Home</a></li>
-                  <li><a class="dropdown-item" href="../donate/profile.php">Manage Profile</a></li>
-                  <li><a class="dropdown-item" href="../donate/donation-history.php">Donation History</a></li>
-                  <li><a class="dropdown-item" href="../donate/manage-appointment.php">Manage Appointment</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Logout</a></li>
-                </ul>
-              </div>
-            </div>
+    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 border-bottom">  
+      <img src="../../../res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
+      <div class="dropdown">
+        <button class="d-flex order-3 p-2 profile me-4" 
+                type="button" 
+                data-bs-toggle="dropdown" 
+                data-bs-target="#profiledropdown" 
+                aria-controls="profiledropdown" 
+                aria-expanded="false">
+          <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end text-small shadow profile-dropdown" aria-labelledby="profiledropdown">
+          <div class="px-4 py-3">
+            <div class="mb-4">
+              <span class="profileName"></span>
+              <p class="mb-2 email-address"></p>
+            </div>  
+            <hr>
+            <a class="dropdown-item px-0" href="index.php">Home</a>
+            <a class="dropdown-item px-0" href="manage-appointment.php">Manage Appoinment</a>
+            <a class="dropdown-item px-0" href="donation-history.php">Donation History</a>
+            <a class="dropdown-item px-0" href="profile.php">Manage Profile</a>
+            <li class="m-0"><hr class="dropdown-divider my-3"></li>
+            <li class="m-0"><a class="dropdown-item" href="../../../logout.php">Logout</a></li>
           </div>
-        </header>
+        </div>
       </div>
-
-
+    </header>
+    <main>
     <div class="container col-xl-12 col-xxl-10 px-4 py-4">
         <div class="row">
-            <main>
                 <div class="col-lg-8 mx-auto">
                     <h2 style="color:red;">Manage Profile</h2> </br>
-                    <form class="p-4 form-box rounded-3 shadow-lg bg-body" id="registration-form"><br>
+                    <form class="p-4 form-box rounded-3 shadow-lg bg-body" id="profile-form"><br>
                         <div class="upper-info row mb-3">
                             <div class="col-lg-6 col-sm-12">
-                                <label for="donor-id"><b>Donor Id:</b></label> &nbsp;
-                                <input style="border: none; background-color: white;" type="text" id="donor-id" name="donor_id" placeholder="Donor ID" disabled>
-                                <button class="mt-2 w-20 btn btn-sm btn-outline-danger btn-register"data-bs-toggle="modal" data-bs-target="#donor-card-modal" type="button">View Donor Card &raquo;</button>
+                            <input  type="hidden" id="id"><br>
+                                <label for="donor-ID"><b>Donor ID:</b></label> &nbsp;
+                                <input style="border: none; background-color: white;" type="text" id="donor-ID" readonly><br>
+                                <button class="mt-2 w-20 btn btn-sm btn-outline-danger" id="btn-view-donor-card" type="button">View Donor Card &raquo;</button>
                             </div>
                         </div>
 
@@ -104,11 +99,10 @@
                             
                             <div class="col mb-3">
                                 <label for="gender">Gender </label> 
-                                <select id="gender" class="form-select">
-                                    <option selected disabled>Select</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Prefer not to say</option>
+                                <select id="gender" class="form-select" name="gender">
+                                    <option selected hidden>Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
 
@@ -119,14 +113,13 @@
                         </div>
 
                         <div class="error-msg"><span class="text-danger" id="error-message"></span></div>
-                        <button class="w-20 btn btn-md btn-outline-danger" data-bs-toggle="modal" data-bs-target="#change-password-modal" type="button">Change Password &raquo;</button>
+                        <button class="w-20 btn btn-md btn-outline-danger" id="btn-open-password-modal">Change Password &raquo;</button>
                     </form>     
 
                     <div class="text-center mt-4">
-                        <button class="w-20 btn btn-lg btn-danger btn-register" type="submit">Save Update</button>
+                        <button class="w-20 btn btn-lg btn-danger" id="btn-update-profile" type="submit">Save Update</button>
                     </div>
                 </div>
-            </main>
         </div>
 
         <!-- VIEW DONOR CARD MODAL -->
@@ -138,47 +131,27 @@
                         <a href=""><button type="button" class="btn-close close-modal"></button></a>
                     </div>
                     <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="card m-3">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-0 text-center">BLOOD DONATION CARD</h5>
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-3 text-end">
-                                            <i class="card-img-top bi bi-person-square" style="font-size: 5rem;"></i>
+                        <div class="card m-3">
+                            <div class="card-body align-items-center text-center">
+                                <div class="row">
+                                    <h5 class="card-title mb-2">BLOOD DONATION CARD</h5>
+                                    <span class="fw-bold" style="background-color:transparent; border:none; font-size:100px; color:red" id="blood-type"></span>
+                                    <div>
+                                        <div class="col">
+                                            <input class="fw-bold fs-4" style="background-color:transparent; border:none; text-align: center;" type="text" id="donor-id" readonly/>
                                         </div>
-                                        <div class="col-lg-9 text-start">
-                                            <div class="row">
-                                                <h6 class="card-title donor-id" style="border: none; color:red; background-color: white;"> Display Donor ID</h6>
-                                                <div class="col-12 mb-0">
-                                                    <label for="donor-id"><b>Donor Id:</b></label> &nbsp;
-                                                    <input style="border: none; background-color: white;" type="text" id="donor-id" name="donor_id" placeholder="Donor ID" disabled>
-                                                </div>
-                                                <div class="col-12 mb-0">
-                                                    <label for="donor-name"><b>Donor:</b></label> &nbsp;
-                                                    <input style="border: none; background-color: white;" type="text" id="donor-name" name="donor_name" placeholder="Donor Name" disabled>
-                                                </div>
-                                                <div class="col-12 mb-0">
-                                                    <label for="donor-name"><b>Gender:</b></label> &nbsp;
-                                                    <input style="border: none; background-color: white;" type="text" id="donor-gender" name="donor_gender" placeholder="Gender" disabled>
-                                                </div>
-                                                <div class="col-12 mb-0">
-                                                    <label for="donor-name"><b>Type:</b></label> &nbsp;
-                                                    <input style="border: none; background-color: white;" type="text" id="blood-type" name="blood_type" placeholder="Blood Type" disabled>
-                                                </div>
-                                            </div>
-
-                                        </div>	
+                                        <div class="col">
+                                            <input class="text-uppercase" style="background-color:transparent; border:none; text-align: center;" type="text" id="donor-name" readonly/>
+                                        </div>
+                                        <div class="col">
+                                            <input style="background-color:transparent; border:none; text-align: center;" type="text" id="donor-gender" readonly/>
+                                        </div>
                                     </div>
-
-                                    <br><p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
-                                    
                                 </div>
+
+                                <br><p class="card-text text-center">Thank you for participating in this noble act. Together, let's save lives!</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href=""><button type="button" class="btn btn-secondary close-modal">Cancel</button></a>
-                        <input type="button" id="confirm" class="btn btn-danger" value="Confirm">
                     </div>
                 </div>
             </div>
@@ -214,26 +187,17 @@
                     </div>
                     <div class="modal-footer">
                         <a href=""><button type="button" class="btn btn-secondary close-modal">Cancel</button></a>
-                        <input type="button" id="confirm" class="btn btn-danger" value="Confirm">
+                        <input type="button" id="confirm-reset" class="btn btn-danger" value="Confirm">
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- ALERT MODAL -->
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <div id="alert-modal" class="modal">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="container-fluid">
-                        <div id="alert">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php include_once("../../components/alert-modal.php"); ?>
     </div>
     <?php
-    	include_once("../../components/footer.php");
+    	include_once("../../components/simple-footer.php");
     ?>
     <script src="../../../js/user/donate/profile.js" type="module"></script>
 </body>

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="./../../../res/img/favicon.svg">
+
     <link rel="stylesheet" href="../../../res/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
@@ -38,58 +40,72 @@
     </style>
   </head>
   <body>
-    <main>
-      <div class="container-fluid">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-          <a href="index.php" class="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
-            <img src="../../../res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
-          </a>
+    <header class="container-fluid navbar navbar-expand-lg navbar-dark fixed-top bg-light shadow py-3 ">
+      <nav class="container-xl bd-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
 
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="home-nav"><a href="../../../module/user/index.php" class="nav-link px-2 link-dark">Home</a></li>
-            <li class="donate-nav"><a href="../../../module/user/donate/index.php" class="nav-link px-2 link-dark">Donate</a></li>
-            <li class="request-nav"><a href="../../../module/user/request/index.php" class="nav-link px-2 link-dark">Request</a></li>
-            <li class="drives-nav"><a href="../../../module/user/drives/index.php" class="nav-link px-2 link-dark">Drives</a></li>
-            <li class="learn-nav"><a href="../../../module/user/learn/index.php" class="nav-link px-2 link-dark"><strong>Learn</strong></a></li>
+        <a href="index.php" class="text-decoration-none">
+          <img src="../../../res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
+        </a>        
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list" style="font-size: 2rem;"></i>
+        </button>
+ 
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav"><hr>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./../donate/index.php">Donate</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./../request/index.php">Request</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./../drives/index.php">Mobile Donation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  active link-danger" aria-current="page" href="./../learn/index.php">Learn</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-dark text-uppercase fw-bold profileName dropdown-toggle"
+                 data-bs-toggle="dropdown" 
+                 data-bs-target="#profiledropdown"
+                 aria-expanded="true">
+                 Profile Name
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end text-small shadow px-4 py-3">
+                <li class="m-0"><a class="dropdown-item" href="../donate/manage-appointment.php">Manage Appointment</a></li>
+                <li class="m-0"><a class="dropdown-item" href="../donate/donation-history.php">Donation History</a></li>
+                <li class="m-0"><a class="dropdown-item" href="../donate/profile.php">Manage Profile</a></li>
+                <li class="m-0"><hr class="dropdown-divider my-3"></li>
+                <li class="m-0"><a class="dropdown-item" href="../../../logout.php">Logout</a></li>
+              </ul>
+            </li>
           </ul>
-
-          <div class="col-md-3 text-end">
-            <div class="p-2 bd-highlight">
-              <div class="dropdown text-end">
-                <span class="profileName">Profile Name</span>
-                <img  src="../../../res/img/loginIcon.png" class="profilePhoto dropdown-toggle" alt="profile-photo"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="../donate/index.php">Home</a></li>
-                  <li><a class="dropdown-item" href="../donate/profile.php">Manage Profile</a></li>
-                  <li><a class="dropdown-item" href="../donate/donation-history.php">Donation History</a></li>
-                  <li><a class="dropdown-item" href="../donate/manage-appointment.php">Manage Appointment</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item"  href="../../../logout.php">Logout</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </header>
-      </div>
-
-      <div class="bg-image">
-        <div class="mask d-flex flex-wrap align-items-center" style="background-color: rgba(0, 0, 0, 0.7); height: 85vh;">
-          <div class="container text-white">
-            <div class="text-center">
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./../../../res/img/learn-bg.png" class="photo" style="z-index: 0" alt="carousel-image">
+            <div class="color-overlay"></div>
+            <div class="carousel-caption text-start">
+              <div class="col-lg-12 text-center">
               <h6>Learn about</h6>
               <h1>blood donation</h1>
               <h5 class="m-2">Discover how blood donation works. You can browse here tips and guidelines of donation 
                 process. All the important things about blood donation process is available here. </h5>
+              </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
 
       <div class="container"><br><br>
         <div class="row">
-          <div class="col-md-12"> 
-
-            <div class="container p-3"><br><br>
+        <div class="col-md-12"> 
+            <div class="container p-3" id="eligibility"><br><br>
               <div class="row align-items-center">
                 <h2 class="display-6 fw-bold text-center" style="color:#9e1e18">Who can donate blood?</h2>
                 <p class="text-center text-dark">There are some basic requirements one  need to fulfill in order to become a blood donor. Below are some basic eligibility guidelines:</p><hr><br><br><br>
@@ -118,20 +134,26 @@
 
                   <p class="pt-2">
                     <span class="text-danger">
-                      <strong>Medication:</strong>
-                    </span>
-                    At least 50kgs or 110 pounds
-                  </p> 
+                      <strong>Pregnancy/Breastfeeding:</strong>
+                    </span> 
+                    Persons who are pregnant are not eligible to donate. Wait 6 weeks after giving birth.
+                  </p>
 
                   <p class="pt-2">
                     <span class="text-danger">
-                      <strong>Pregnancy/Breastfeeding:</strong>
-                    </span> 
-                    Between 16-65 years old (16-17 years old with parent's written consent, 60-65 years old must be a regular donor)
-                  </p>
+                      <strong>Dental:</strong>
+                    </span>
+                    Acceptable after dental procedures as long as there is no infection present. Wait until finishing antibiotics for a dental infection. Wait for 3 days after having oral surgery.                  </p>
+                 
                 </div>
 
                 <div class="col-md-6 ">
+
+                  <p class="pt-2">
+                    <span class="text-danger">
+                      <strong>Surgery:</strong>
+                    </span>
+                    It is not necessarily surgery but the underlying condition that precipitated the surgery that requires evaluation before donation. Evaluation is on a case by case basis. You should discuss your particular situation with the health historian at the time of donation.                  </p>
                   <p class="pt-2">
                     <span class="text-danger">
                       <strong>Tattoo:</strong>
@@ -143,87 +165,85 @@
                     <span class="text-danger">
                       <strong>Piercing:</strong>
                     </span>
-                    Must be in good health at the time of donation. You cannot donate if you have cold, flu, sore throat, cold sore, stomach bug or any other infection.
-                  </p>
+                    Acceptable as long as the instruments used were single-use equipment and disposable (which means both the gun and the earring cassette were disposable). Wait 3 months if a piercing was performed using a reusable gun or any reusable instrument.                  </p>
 
                   <p class="pt-2">
                     <span class="text-danger">
                       <strong>Alcohol:</strong>
                     </span>
-                    If you have recently had a tattoo, you cannot donate for 6 months from the date of procedure.
-                  </p>
+                    You cannot give blood if you are under the influence of alcohol. You must not consume alcohol on the day of donation.</p>
 
-                  <p class="pt-2">
-                    <span class="text-danger">
-                      <strong>Dental:</strong>
-                    </span>
-                    If you have recently had a tattoo, you cannot donate for 6 months from the date of procedure.
-                  </p>
-
-                  <p class="pt-2">
-                    <span class="text-danger">
-                      <strong>Surgery:</strong>
-                    </span>
-                    If you have recently had a tattoo, you cannot donate for 6 months from the date of procedure.
-                  </p>
+                  
                 </div>
               </div>
             </div>
 
-            <div class="container-fluid p-2"><br><br>
+            <div class="container-fluid"><br><br>
               <div class="row align-items-md-stretch">
-                <h2 class="mb-5 display-6 fw-bold text-center" style="color:#9e1e18">Process of Blood Donation</h2><br><br>
-
-                <div class="col-md-3 mb-5">
+                <h2 class="pb-5 display-6 fw-bold text-center" style="color:#9e1e18">Process of Blood Donation</h2><br><br>
+                <div class="col-md-6 col-lg-4 mb-5">
                   <div class="h-100 bg-white rounded shadow">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img">
-                      <rect width="100%" height="100%" fill="#a83232"/>
-                      <image xlink:href="../../../res/img/002.jpg" height="100%" width="100%"/>
-                    </svg>
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img" data-bs-toggle="modal" data-bs-target="#picture-1-modal" type="button">
+                        <rect width="100%" height="100%" fill="#a83232"/>
+                        <image xlink:href="../../../res/img/001.jpg" height="100%" width="100%"/>
+                      </svg>
                     <div class="p-3 text-dark">
                       <h5 class="text-danger">STEP 1</h5>
-                      <h4>Registration and Blood Typing / Hemoglobin Testing</h4><hr>
-                      <p class="p-2">Fill-out Donor History Questionnare, undergo initial interview and know your blood type and hemoglobin status</p>
+                      <h4>Registration</h4><hr>
+                      <p class="p-2">Fill-out donor history questionnare. Make sure that all information included are valid and true.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-5">
+                  <div class="h-100 bg-white rounded shadow">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img" data-bs-toggle="modal" data-bs-target="#picture-2-modal" type="button">
+                        <rect width="100%" height="100%" fill="#a83232"/>
+                        <image xlink:href="../../../res/img/002.jpg" height="100%" width="100%"/>
+                      </svg>
+                    <div class="p-3 text-dark">
+                      <h5 class="text-danger">STEP 2</h5>
+                      <h4>Blood Typing / Hemoglobin Testing</h4><hr>
+                      <p class="p-2">Undergo initial interview and know your blood type and hemoglobin status</p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-3 mb-5">
+                <div class="col-md-6 col-lg-4 mb-5">
                   <div class="h-100 bg-white rounded shadow">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img" data-bs-toggle="modal" data-bs-target="#picture-3-modal" type="button">
                       <rect width="100%" height="100%" fill="#a83232"/>
                       <image xlink:href="../../../res/img/003.jpg" height="100%" width="100%"/>
                     </svg>
                     <div class="p-3 text-dark">
-                      <h5 class="text-danger">STEP 2</h5>
+                      <h5 class="text-danger">STEP 3</h5>
                       <h4>Physical Examination</h4><hr>
                       <p class="p-2">A mini-physical exam is performed by the doctor to check your general appearance, heart, and lungs.</p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-3 mb-5">
+                <div class="col-md-6 col-lg-4 mb-5">
                   <div class="h-100 bg-white rounded shadow">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img" data-bs-toggle="modal" data-bs-target="#picture-4-modal" type="button">
                       <rect width="100%" height="100%" fill="#a83232"/>
                       <image xlink:href="../../../res/img/004.jpg" height="100%" width="100%"/>
                     </svg>
                     <div class="p-3 text-dark">
-                      <h5 class="text-danger">STEP 3</h5>
+                      <h5 class="text-danger">STEP 4</h5>
                       <h4>Blood Extraction</h4><hr>
-                      <p class="p-2">A 450ml of blood is drawn from a vein in your arm for about 5-10 minutes. After extraction, remain at rest for about 10-15 minutes and have something to eat and drink until your body is adjusted to change in volume.</p>
+                      <p class="p-2">A 450ml of blood is drawn from a vein in your arm for about 5-10 minutes. Stay calm and relax your arms.</p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-3 mb-5">
+                <div class="col-md-6 col-lg-4 mb-5">
                   <div class="h-100 bg-white rounded shadow">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img" data-bs-toggle="modal" data-bs-target="#picture-5-modal" type="button">
                       <rect width="100%" height="100%" fill="#a83232"/>
                       <image xlink:href="../../../res/img/005.jpg" height="100%" width="100%"/>
                     </svg>
                     <div class="p-3 text-dark">
-                      <h5 class="text-danger">STEP 4</h5>
+                      <h5 class="text-danger">STEP 5</h5>
                       <h4>Recovery Period</h4><hr>
                       <p class="p-2">After extraction, remain at rest for about 10-15 minutes and have something to eat and drink until your body is adjusted to change in volume.</p>
                     </div>
@@ -231,8 +251,9 @@
                 </div>
               </div>
             </div>
-            <div class="container bg-light " id="reminders"><br><br>
-              <h2 class="mb-5 display-6 fw-bold text-center" style="color:#9e1e18">Reminders Before,During and After Blood Donation</h2><br><br>
+            <br><br>
+            <div class="container mb-5 p-5 bg-light" id="reminders"><br><br>
+              <h2 class="mb-5 display-6 fw-bold text-center" style="color:#9e1e18">Reminders Before, During and After Blood Donation</h2><br><br>
               <div class="row g-4 py-5 border-top row-cols-1 row-cols-lg-3">
                 <div class="col d-flex align-items-start">
                   <div class="icon-square text-dark flex-shrink-0 me-3">
@@ -283,14 +304,75 @@
           </div>
         </div>
       </div>
-      
-       
 
-        
+            <!-- PICTURE-1 MODAL -->
+            <div id="picture-1-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body mb-0 p-0">
+              <img src="./../../../res/img/001.jpg" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
 
+       <!-- PICTURE-1 MODAL -->
+       <div id="picture-1-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body mb-0 p-0">
+              <img src="./../../../res/img/001.jpg" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PICTURE-2 MODAL -->
+      <div id="picture-2-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body mb-0 p-0">
+              <img src="./../../../res/img/002.jpg" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PICTURE-3 MODAL -->
+      <div id="picture-3-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body mb-0 p-0">
+              <img src="./../../../res/img/003.jpg" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PICTURE-4 MODAL -->
+      <div id="picture-4-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body mb-0 p-0">
+              <img src="./../../../res/img/004.jpg" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PICTURE-4 MODAL -->
+      <div id="picture-5-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body mb-0 p-0">
+              <img src="./../../../res/img/005.jpg" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <?php
-    	include_once("../../components/footer.php");
+    	include_once("../../components/auth-footer.php");
     ?>
     <script src="../../../js/user/learn/index.js" type="module"></script>
   </body>

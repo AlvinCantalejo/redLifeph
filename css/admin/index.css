@@ -2,49 +2,8 @@ body {
   font-size: .875rem;
 }
 
-.feather {
-  width: 16px;
-  height: 16px;
-}
-
-.b-example-divider {
-  height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.b-example-vr {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
-}
-
-.bi {
-  vertical-align: -.125em;
-  fill: currentColor;
-}
-
-.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-  display: flex;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* HEADER */
+/* HEADER 
+-------------------------------------------------- */
 header{
   background-color: #890000;
 }
@@ -52,70 +11,40 @@ header{
 img.red-life-logo{
   height: 67px;
   padding: 5px;
-  }
-  
-  img.profilePhoto{
-    width: 40px;
-    height: 40px;
-    padding: 5px;
-  }
-  
-  span.profileName{
-    margin-top: 10px;
-    letter-spacing: 1px;
-    color: black;
-    font-size: 15px;
-  }
-  
-  .dropdown-menu{
-    position: absolute;
-    inset: 0px 0px auto 0px;
-    margin: 0px;
-    transform: translate(128px, 58px);
-  }
-
-  button.profile{
-    border: none;
-    color: white;
-    text-decoration: none;
-  }
-
-  a{
-    color: black;
-  }
-
-@media (max-width: 991.98px){
-  .offcanvas.show:not(.hiding), .offcanvas.showing {
-      transform: none;
-  }
 }
-@media (max-width: 991.98px){
-  .bd-navbar .offcanvas {
-    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
-  }
+  
+img.profilePhoto{
+  width: 40px;
+  height: 40px;
+  padding: 5px;
 }
 
-.bd-navbar .offcanvas {
-    background-color: black;
-    border-left: 0;
+.profile{
+  border: none;
+  color: white;
+  text-decoration: none;
+  background: transparent;
 }
-/*
- * Sidebar
- */
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+.profile-dropdown{
+  width: 300px;
+}
+
+/* Sidebar
+-------------------------------------------------- */
 
 .sidebar {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
+  z-index: 100; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-}
-
-@media (max-width: 767.98px) {
-  .sidebar {
-    top: 5rem;
-  }
 }
 
 .sidebar-sticky {
@@ -132,57 +61,93 @@ img.red-life-logo{
   color: #333;
 }
 
-.sidebar .nav-link {
-  margin-right: 4px;
-  color: #727272;
-}
-
 .sidebar .nav-link.active {
   color: #2470dc;
 }
 
-.sidebar .nav-link:hover,
-.sidebar .nav-link.active {
-  color: inherit;
+/* Body
+-------------------------------------------------- */
+
+/* Modal */
+.modal-dialog{
+  overflow-y: initial !important
+}
+.modal-body{
+  max-height: calc(100vh - 200px);
 }
 
-.sidebar-heading {
-  font-size: .75rem;
+.blood-type-dropdown{
+  border-radius: 0px;
+  width: 100%;
+  font-size: .875rem;
 }
 
-/*
- * Navbar
- */
-
-.navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+.col-sm-1, .col-sm-2, .col-sm-3{
+  padding-right: 0px;
 }
 
-.navbar .navbar-toggler {
-  top: .25rem;
-  right: 1rem;
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 3rem;
+  }
 }
 
-.navbar .form-control {
-  padding: .75rem 1rem;
-}
-
-.form-control-dark {
-  color: #fff;
-  background-color: rgba(255, 255, 255, .1);
-  border-color: rgba(255, 255, 255, .1);
-}
-
-.form-control-dark:focus {
-  border-color: transparent;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+@media (min-width: 770px) {
+  .sidebar {
+    top: 3rem;
+  }
 }
 
 @media (max-width: 500px) {
- #offcanvasProfile{
-  width: 70%;
- }
+  img.red-life-logo{
+    width: 180px;
+  }
+
+  .profile-dropdown{
+    width: 200px;
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 768px){
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 100px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+}
+
+@media (width: 768px){
+  .col-sm-1{
+    width: 13%;
+  }
+
+  .col-sm-2{
+    font-size: smaller;
+    padding-left: 1px;
+    width: 15%;
+  }
+
+  .col-sm-3{
+    font-size: smaller;
+    padding-left: 5px;
+    width: 24%;
+  }
+}
+
+
+@media (max-width: 575px){
+  .col-sm-1, .col-sm-2, .col-sm-3{
+    padding: 5px;
+
+  }
 }
