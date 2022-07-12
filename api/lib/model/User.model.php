@@ -3,6 +3,7 @@ include_once(__DIR__ . "/../helper/DB.helper.php");
 class User extends DBHelper{
 
     const ID = "id";   
+    const ID_DONOR = "id_donor";   
     const EMAIL = "email";
     const PASSWORD = "password";
     const FIRST_NAME = "first_name";
@@ -13,6 +14,7 @@ class User extends DBHelper{
     const USER_STATUS = "user_status";
     const USER_ROLE = "user_role";
     const TOKEN = "token";
+    const BLOOD_TYPE = "blood_type";
 
     /**
         @desc: Init class
@@ -22,7 +24,11 @@ class User extends DBHelper{
     }   
 
     public function loginUser($email, $userStatus){
-        $sql = "SELECT r_user.*, r_donor.id as id_donor
+        $sql = "SELECT r_user.*, 
+                    r_donor.id as id_donor,
+                    r_donor.blood_type,
+                    r_donor.gender,
+                    r_donor.birth_date
                 FROM r_user 
                 LEFT JOIN r_donor
                 ON r_user.id = r_donor.id_user
@@ -40,7 +46,7 @@ class User extends DBHelper{
 
     public function resetUserPassword($id, $encPassword ) {
 
-        $sql = "UPDATE c_user SET password = ? WHERE id = ?";
+        $sql = "UPDATE r_user SET password = ? WHERE id = ?";
         $statement = $this->db->prepare($sql);
         $statement->bind_param("si", $encPassword, $id);
         $excecuted = $statement->execute();
@@ -59,35 +65,40 @@ class User extends DBHelper{
     }
 
     public function updateProfile ( $id,
-                                    $first_name,
-                                    $last_name,
+                                    $idDonor,
+                                    $firstName,
+                                    $lastName,
                                     $email,
-                                    $phone_number,
-                                    $user_status,
-                                    $user_role) {
+                                    $phoneNumber,
+                                    $birthDate,
+                                    $gender) {
 
-        $data = new Message("All fields are required!");
+        $data = new Message("Profile not updated!");
 
-        $sql = "UPDATE c_user 
+        $sql = "UPDATE r_user 
                 SET first_name = ?, 
-                last_name = ?, 
-                email = ?, 
-                phone_number = ?, 
-                user_status = ?, 
-                user_role = ? 
+                    last_name = ?, 
+                    email = ?, 
+                    phone_number = ?
                 WHERE id = ?";
         $statement = $this->db->prepare ($sql);
-        $statement->bind_param('ssssssi',
-                                            $first_name,
-                                            $last_name,
+        $statement->bind_param('ssssi',     $firstName,
+                                            $lastName,
                                             $email,
-                                            $phone_number,
-                                            $user_status,
-                                            $user_role,
+                                            $phoneNumber,
                                             $id);
+        $statement->execute();
 
-        $excecuted = $statement->execute();
-        return $excecuted;
+        $sql = "UPDATE r_donor
+                SET birth_date = ?, 
+                    gender = ?
+                WHERE id = ?";
+        $statement = $this->db->prepare ($sql);
+        $statement->bind_param('sss',   $birthDate,
+                                        $gender,
+                                        $idDonor);
+        $statement->execute();
+        return true;
     }
 
 
@@ -98,7 +109,8 @@ class User extends DBHelper{
                                     $encPassword,
                                     $donorID,
                                     $birthDate,
-                                    $gender ) {
+                                    $gender,
+                                    $bloodType ) {
 
         $sql = "INSERT INTO r_user(first_name, last_name, phone_number, email, password) 
                 VALUES(?, ?, ?, ?, ?)";
@@ -117,27 +129,28 @@ class User extends DBHelper{
             return $this->addDonor( $donorID, 
                                     $idUser, 
                                     $birthDate, 
-                                    $gender );  
+                                    $gender,
+                                    $bloodType );  
         }
         else{
             return false;
         }
-            
     }
 
     public function addDonor(   $donorID, 
                                 $idUser, 
                                 $birthDate, 
-                                $gender ){
+                                $gender,
+                                $bloodType ){
 
-        $sql = "INSERT INTO r_donor(id, id_user, birth_date, gender) 
-        VALUES(?, ?, ?, ?);";
+        $sql = "INSERT INTO r_donor(id, id_user, birth_date, gender, blood_type) 
+        VALUES(?, ?, ?, ?, ?);";
         $statement = $this->db->prepare ($sql);
-        $statement->bind_param('siss',
-                                        $donorID,
+        $statement->bind_param('sisss', $donorID,
                                         $idUser,
                                         $birthDate,
-                                        $gender);
+                                        $gender,
+                                        $bloodType);
         $excecuted = $statement->execute();
         return $excecuted;
     }

@@ -4,7 +4,7 @@
 */
 
 include_once(__DIR__ . "/helper/Session.helper.php");
-include_once(__DIR__ . "/helper/APi.helper.php");
+include_once(__DIR__ . "/helper/API.helper.php");
 include_once(__DIR__ . "/model/Message.model.php");
 include_once(__DIR__ . "/model/User.model.php");
 include_once(__DIR__ . "/controller/User.controller.php");
@@ -76,7 +76,26 @@ class RouterAPI extends APIHelper {
         if ($endpoint == "user") {
             $user = new UserController($_GET);
 
-            
+            if($action == "donation-drives"){
+                $return = $user->getAllDonationDrives();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "donation-drive"){
+                $return = $user->getDonationDrive();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "drive-registration"){
+                $return = $user->getDriveRegistration();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "request"){
+                $return = $user->trackRequest();
+                $data = $return[0];
+                $code = $return[1];
+            }
             //ALL PROTECTED ENDPOINTS
             if ($this->security->isCallNotAllowed()) {
                 return $this->response($data, $code);
@@ -92,10 +111,16 @@ class RouterAPI extends APIHelper {
                 $code = $return[1];
             }
             else if($action == "appointments"){
-                $return = $user->getAllAppointment();
+                $return = $user->getAppointments();
                 $data = $return[0];
                 $code = $return[1];
             }
+            else if($action == "donations"){
+                $return = $user->getAllDonations();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            
 
         }
 
@@ -119,6 +144,41 @@ class RouterAPI extends APIHelper {
             }
             else if($action == "participants"){
                 $return = $admin->getParticipants();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "appointment"){
+                $return = $admin->getAppointment();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "appointments"){
+                $return = $admin->getAllAppointments();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "filter-appointments"){
+                $return = $admin->filterAppointments();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "donations"){
+                $return = $admin->getAllDonations();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "filter-donations"){
+                $return = $admin->filterDonations();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "requests"){
+                $return = $admin->getAllRequests();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "filter-requests"){
+                $return = $admin->filterDonations();
                 $data = $return[0];
                 $code = $return[1];
             }
@@ -192,19 +252,65 @@ class RouterAPI extends APIHelper {
                 $data = $return[0];
                 $code = $return[1];
             }
+            else if($action == "update-profile"){
+                $return = $user->updateProfile();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "reset-password"){
+                $return = $user->resetUserPassword();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            
         }
 
         //INCLUDE HERE ENDPOINTS FOR ADMIN
         if ($endpoint == "admin") {
             $admin = new AdminController($_POST);
-
-            if($action == "add-donation-drive"){
+            if($action == "add-donation"){
+                $return = $admin->addDonation();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "add-new-donor"){
+                $return = $admin->addNewDonor();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            
+            else if($action == "update-donation"){
+                $return = $admin->updateDonation();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "delete-donation"){
+                $return = $admin->deleteDonation();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "add-donation-drive"){
                 $return = $admin->addDonationDrive();
                 $data = $return[0];
                 $code = $return[1];
             }
             else if($action == "update-donation-drive"){
                 $return = $admin->updateDonationDrive();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "add-request"){
+                $return = $admin->addNewRequest();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "update-request"){
+                $return = $admin->updateRequest();
+                $data = $return[0];
+                $code = $return[1];
+            }
+            else if($action == "delete-request"){
+                $return = $admin->deleteRequest();
                 $data = $return[0];
                 $code = $return[1];
             }

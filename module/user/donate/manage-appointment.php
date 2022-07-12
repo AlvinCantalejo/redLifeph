@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="./../../../res/img/favicon.svg">
+
 	<!-- External Links -->
     <link rel="stylesheet" href="../../../res/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,42 +31,36 @@
     <title>Donate | Manage Appointment</title>
   </head>
   <body>
-    <main>
-      <div class="container-fluid">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-          <a href="index.php" class="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
-            <img src="../../../res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
-          </a>
-
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="home-nav"><a href="../../../module/user/index.php" class="nav-link px-2 link-dark">Home</a></li>
-            <li class="donate-nav"><a href="../../../module/user/donate/index.php" class="nav-link px-2 link-dark"><strong>Donate</strong></a></li>
-            <li class="request-nav"><a href="../../../module/user/request/index.php" class="nav-link px-2 link-dark">Request</a></li>
-            <li class="drives-nav"><a href="../../../module/user/drives/index.php" class="nav-link px-2 link-dark">Drives</a></li>
-            <li class="learn-nav"><a href="../../../module/user/learn/index.php" class="nav-link px-2 link-dark">Learn</a></li>
-          </ul>
-
-          <div class="col-md-3 text-end">
-            <div class="p-2 bd-highlight">
-              <div class="dropdown text-end">
-                <span class="profileName">Profile Name</span>
-                <img  src="../../../res/img/loginIcon.png" class="profilePhoto dropdown-toggle" alt="profile-photo"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="../donate/index.php">Home</a></li>
-                  <li><a class="dropdown-item" href="../donate/profile.php">Manage Profile</a></li>
-                  <li><a class="dropdown-item" href="../donate/donation-history.php">Donation History</a></li>
-                  <li><a class="dropdown-item" href="../donate/manage-appointment.php">Manage Appointment</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item"  href="../../../logout.php">Logout</a></li>
-                </ul>
-              </div>
-            </div>
+    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 border-bottom">  
+      <img src="../../../res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
+      <div class="dropdown">
+        <button class="d-flex order-3 p-2 profile me-4" 
+                type="button" 
+                data-bs-toggle="dropdown" 
+                data-bs-target="#profiledropdown" 
+                aria-controls="profiledropdown" 
+                aria-expanded="false">
+          <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end text-small shadow profile-dropdown" aria-labelledby="profiledropdown">
+          <div class="px-4 py-3">
+            <div class="mb-4">
+              <span class="profileName">Profile Name</span>
+              <p class="mb-2 email-address">hanniellevalle@gmail.com</p>
+            </div>  
+            <hr>
+            <a class="dropdown-item px-0" href="index.php">Home</a>
+            <a class="dropdown-item px-0" href="manage-appointment.php">Manage Appointment</a>
+            <a class="dropdown-item px-0" href="donation-history.php">Donation History</a>
+            <a class="dropdown-item px-0" href="profile.php">Manage Profile</a>
+            <hr>
+            <a class="px-0 py-3" href="#">Logout</a>
           </div>
-        </header>
+        </div>
       </div>
-
-
-    <div class="container">
+    </header>
+    <main>
+      <div class="container">
         <div class="row">
             <main><br><br>
                 <h2 style="color:red;">Manage Appointment </h2> </br>
@@ -119,7 +115,7 @@
         </div>
     </div>
     <?php
-    	include_once("../../components/footer.php");
+    	include_once("../../components/simple-footer.php");
     ?>
     <script src="../../../js/user/donate/manage-appointment.js" type="module"></script>
 </body>

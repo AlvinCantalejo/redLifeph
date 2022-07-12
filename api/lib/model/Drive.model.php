@@ -6,6 +6,7 @@ class Drive extends DBHelper{
     const ID_DONATION_DRIVE = "id_donation_drive";   
     const EVENT_TITLE = "event_title";
     const EVENT_DATE = "event_date";
+    const EVENT_TIME = "event_time";
     const EVENT_LOCATION = "event_location";
     const PHOTO_FILENAME = "photo_filename";
     const PHOTO_FILE = "photo_file";
@@ -21,20 +22,22 @@ class Drive extends DBHelper{
 
     public function addDonationDrive(   $eventTitle,
                                         $eventDate,
+                                        $eventTime,
                                         $location,
                                         $photoFilename,
                                         $eventDetails,
                                         $postedBy){
-        $sql = "INSERT INTO r_donation_drive(event_title, event_date, location, photo_filename, event_details, posted_by) 
-                VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO r_donation_drive(event_title, event_date, event_time, event_location, photo_filename, event_details, posted_by) 
+                VALUES (?,?,?,?,?,?,?)";
                 
         $statement = $this->db->prepare($sql);
-        $statement->bind_param('sssssi',$eventTitle,
-                                        $eventDate,
-                                        $location,
-                                        $photoFilename,
-                                        $eventDetails,
-                                        $postedBy);
+        $statement->bind_param('ssssssi',   $eventTitle,
+                                            $eventDate,
+                                            $eventTime,
+                                            $location,
+                                            $photoFilename,
+                                            $eventDetails,
+                                            $postedBy);
         $executed = $statement->execute();
         return $executed;
     }
@@ -47,6 +50,21 @@ class Drive extends DBHelper{
                 LEFT JOIN r_user
                 ON r_user.id = r_donation_drive.posted_by";
         $statement = $this->db->prepare($sql);
+        $statement->execute();
+        return $statement->get_result();
+    }
+
+    public function getDonationDrive( $id){
+
+        $sql = "SELECT r_donation_drive.*, 
+                CONCAT(r_user.first_name,' ' , r_user.last_name) AS fullname
+                FROM r_donation_drive
+                LEFT JOIN r_user
+                ON r_user.id = r_donation_drive.posted_by 
+                WHERE r_donation_drive.id = ?";
+                
+        $statement = $this->db->prepare($sql);
+        $statement->bind_param("i", $id);
         $statement->execute();
         return $statement->get_result();
     }
@@ -70,15 +88,17 @@ class Drive extends DBHelper{
     public function updateDonationDrive($id,
                                         $eventTitle,
                                         $eventDate,
+                                        $eventTime,
                                         $eventLocation,
                                         $eventDetails){
 
         $sql = "UPDATE r_donation_drive
-                SET event_title = ?, event_date = ?, event_location = ?, event_details =?
+                SET event_title = ?, event_date = ?, event_time = ?, event_location = ?, event_details =?
                 WHERE id = ?";
         $statement = $this->db->prepare($sql);
-        $statement->bind_param('ssssi', $eventTitle,
+        $statement->bind_param('sssssi', $eventTitle,
                                         $eventDate,
+                                        $eventTime,
                                         $eventLocation,
                                         $eventDetails,
                                         $id);

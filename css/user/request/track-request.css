@@ -11,23 +11,41 @@
   }
 /* BODY
   -------------------------------------------------- */
-
-  div.bg-image{
-    background-image: url('../../../res/img/blood-transfusion.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 70vh;
-    align-items: center;
+  .color-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: black ;
+    opacity: .6;
+    position: absolute;
   }
-
-  div.text-center{
-    padding-left: 200px;
-    padding-right: 200px;
+  
+  .carousel {
+    margin-bottom: 2rem;
+  }
+  
+  .carousel-caption {
+    bottom: 5rem;
+    z-index: 10;
+  }
+  
+  .carousel-item {
+    height: 40rem;
+  }
+  
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40rem;
+    min-width: 100%;
   }
 
   input{
     margin-right: 10px;
+  }
+
+  .container{
+    position: relative;
   }
 
 /* FOOTER 

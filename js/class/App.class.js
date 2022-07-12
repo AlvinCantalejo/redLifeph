@@ -23,9 +23,9 @@ class App {
             },
             error: function (error) { 
                 if(userRole == User.USER)
-                    window.location.href = "./../../../login.php";
+                    window.location.href = "/index.php";
                 else if(userRole == User.ADMIN)
-                    window.location.href = "./../../../login.php";
+                    window.location.href = "/login.php";
             }
         });
     }
@@ -40,6 +40,15 @@ class App {
         });
     }
 
+    static searchBar(){
+        $(".search").on("keyup", function() {
+            var input = $(this).val().toLowerCase();
+            var rows = $("tbody tr");
+            rows.filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(input) > -1);
+            });
+        });
+    }
     //VALIDATE PHONE NUMBER
     static checkPhoneNumber(phoneNumber){
 
@@ -79,7 +88,7 @@ class App {
         if(user_role == "Admin")
             window.location.href = "module/admin/index.php";
         else if(user_role == "User")
-            window.location.href = "module/user/index.php";    
+            window.location.href = "module/user/donate/index.php";    
     }
 
     //CONVERT FORM DATA TO OBJECT

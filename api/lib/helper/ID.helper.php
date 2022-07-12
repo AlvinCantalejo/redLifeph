@@ -77,4 +77,38 @@ class IDHelper
         return $donorID;
 
     }
+
+    static function generateDonationID() : string
+    {   
+        //Generate a 3-digit random number.
+        $RANDOM_NUMBER_MIN = 100;
+        $RANDOM_NUMBER_MAX = 999;
+       // $LENGTH = 5;
+
+        $randomNumber = rand($RANDOM_NUMBER_MIN, $RANDOM_NUMBER_MAX);
+        //$randomletter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $LENGTH);
+        date_default_timezone_set('Asia/Manila');
+        $date = date('Ymd');
+
+        $donationID = $date . "-WB-" . $randomNumber;
+        return $donationID;
+
+    }
+
+    static function generateReleaseNumber() : string
+    {   
+        //Generate a 3-digit random number.
+        $RANDOM_NUMBER_MIN = 100;
+        $RANDOM_NUMBER_MAX = 999;
+       // $LENGTH = 5;
+
+        $randomNumber = rand($RANDOM_NUMBER_MIN, $RANDOM_NUMBER_MAX);
+        //$randomletter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $LENGTH);
+        date_default_timezone_set('Asia/Manila');
+        $date = date('ym');
+
+        $releaseNumber = "R-". $date . "-WB-" . $randomNumber;
+        return $releaseNumber;
+
+    }
 }

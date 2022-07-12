@@ -4,12 +4,8 @@ body {
 
 /* HEADER 
 -------------------------------------------------- */
-header{
-  background-color: #890000;
-} 
-
 img.red-life-logo{
-	width: 325px;
+	width: 250px;
 	height: 72px;
 	padding: 5px;
 }
@@ -41,16 +37,40 @@ img.red-life-logo{
   text-decoration: underline;
 }
 
+li.nav-item a:hover{
+  background-color: none;
+  text-decoration: underline;
+}
+
 /* BODY 
 -------------------------------------------------- */
+.color-overlay{
+  width: 100%;
+  height: 100%;
+  background-color: black ;
+  opacity: .4;
+  position: absolute;
+}
 
-div.bg-image{
-  background-image: url('./../../res/img/donorpage-background.jpeg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 85vh;
-  align-items: center;
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 6rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 40rem;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40rem;
+  min-width: 100%;
 }
 
 .components .col-lg-4 {
@@ -63,20 +83,16 @@ div.bg-image{
   margin-left: .75rem;
 }
 
-
 h1{
   text-transform: uppercase;
-  font-weight:500;
   font-size: 150px;
-  margin-top: -20px;
+  margin-top: 10px;
   color: red;
 }
 
 h6{
   text-transform: uppercase;
-  font-weight:500;
   font-size: 80px;
-  margin-left: 10px;
   margin-bottom: -50px;
   color: white;
 }
@@ -91,12 +107,16 @@ img.logo {
   padding-right: 20px;
 }
 
-  
+.book{
+  width:250px;
+}
 
+.banner-button{
+  text-align: end;
+}
 
 /* FOOTER
 -------------------------------------------------- */
-
 .website-footer {
   padding: 2.5rem 0;
   color: #727272;
@@ -108,19 +128,16 @@ img.logo {
   margin-bottom: 0;
 }
 
-.book{
-  width:250px;
+.col-12 img{
+  width: 40px;
+  height: 40px;
 }
   
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
 @media (max-width: 2000px) {
   li{
    margin-right: 30px;
-  }
-  ul.navbar-nav{
-    padding-right: 100px;
   }
 }
 
@@ -131,22 +148,18 @@ img.logo {
 }
 
 @media (max-width: 1100px) {
-  ul.navbar-nav{
-    padding-right: 0px;
-  }
-
-  #hanging-icons{
-    padding: 48px;
+  li{
+    margin-right: 10px;
   }
 }
 
 @media (max-width: 999px) {
-  li{
-    margin-right: 0px;
-   }
-
   .banner{
     padding: 25px;
+    text-align: center;
+  }
+
+  .banner-button{
     text-align: center;
   }
 
@@ -157,6 +170,28 @@ img.logo {
   .book{
     width:250px;
   }
+
+  h1{
+    font-size: 130px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 60px;
+    margin-bottom: -40px;
+  }
+}
+
+@media (max-width: 767px) {
+  h1{
+    font-size: 100px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 50px;
+    margin-bottom: -40px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -164,22 +199,8 @@ img.logo {
     width: 250px;
   }
 
-  ul.navbar-nav{
-    padding-right: 0px;
-  }
-
   li{
     margin-right: 0px;
-   }
-   
-  h1{
-    font-size: 80px;
-  }
-
-  h6{
-      font-size: 50px;
-      margin-bottom: 5px;
-      margin-left: 0px;
   }
   
   .banner{
@@ -187,16 +208,49 @@ img.logo {
     text-align: center;
   }
 
-  button{
-    margin-top: 10px;
-  }
-
   .book{
     width:250px;
   }
 
-  #hanging-icons{
-    padding: 20px;
+  h1{
+    font-size: 80px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 50px;
+    margin-bottom: -30px;
+    margin-left: 0px;
+  }
+
+  .col-12 img{
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  img.red-life-logo{
+    width: 200px;
+  }
+
+  h1{
+    font-size: 80px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 50px;
+    margin-bottom: -30px;
+    margin-left: 0px;
+  }
+
+  h5{
+    font-size:medium;
+  }
+
+  .carousel-caption {
+    bottom: 8rem;
   }
 }
 
@@ -205,26 +259,19 @@ img.logo {
     width: 180px;
   }
 
-  ul.navbar-nav{
-    padding-right: 0px;
-  }
-
-  li{
-    margin-right: 0px;
-  }
-
   h1{
     font-size: 50px;
+    margin-top: 20px;
   }
 
   h6{
     font-size: 40px;
-    margin-bottom: 5px;
+    margin-bottom: -30px;
     margin-left: 0px;
   }
 
   h5{
-    font-size: 15px;
+    font-size: smaller;
   }
 
   .book{
@@ -235,5 +282,13 @@ img.logo {
   .btn2-book{
     width:200px;
     font-size: 15px;
+  }
+
+  h4{
+    font-size: medium;
+  }
+
+  .col-12 p{
+    font-size: smaller;
   }
 }

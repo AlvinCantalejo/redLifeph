@@ -2,62 +2,102 @@ body {
     color: #5a5a5a;
   }
 
-  /* HEADER */
-  img.red-life-logo{
-    width: 320px;
-    height: 67px;
-    padding: 5px;
-  }
-
-  img.profilePhoto{
-    width: 40px;
-    height: 40px;
-    padding: 5px;
+/* HEADER 
+-------------------------------------------------- */
+img.red-life-logo{
+  width: 250px;
+  height: 72px;
+  padding: 5px;
   }
   
-  span.profileName{
-    margin-top: 10px;
-    letter-spacing: 1px;
+  .profile{
+    border: none;
     color: black;
-    font-size: 15px;
+    text-decoration: none;
+    background: transparent;
   }
-
-  .dropdown-menu{
-    position: absolute;
-    inset: 0px 0px auto 0px;
-    margin: 0px;
-    transform: translate(128px, 58px);
-}
   
+  .nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+  }
+  
+  .nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  }
+  
+  .navbar-toggler{
+  color: black;
+  }
+  
+  .nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+  }
+  
+  li.nav-item a:hover{
+    background-color: none;
+    text-decoration: underline;
+  }
+  
+  ul.dropdown-menu a:hover{
+    text-decoration: none;
+  }
+  
+/* BODY 
+-------------------------------------------------- */
+.color-overlay{
+  width: 100%;
+  height: 100%;
+  background-color: black ;
+  opacity: .6;
+  position: absolute;
+}
 
-/* BODY */
+.carousel {
+  margin-bottom: 4rem;
+}
 
-div.bg-image{
-  background-image: url('../../../res/img/blood-transfusion.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 85vh;
-  align-items: center;
+.carousel-caption {
+  bottom: 5rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 40rem;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40rem;
+  min-width: 100%;
 }
 
 h1{
-    text-transform: uppercase;
-    font-weight:500;
-    font-size: 150px;
-    margin-top: -20px;
-    color: red;
-  }
+  text-transform: uppercase;
+  font-size: 150px;
+  margin-top: 10px;
+  color: red;
+}
   
-  h6{
-      text-transform: uppercase;
-      font-weight:500;
-      font-size: 80px;
-      margin-left: 10px;
-      margin-bottom: -50px;
-      color: white;
-    }
-  
+h6{
+  text-transform: uppercase;
+  font-size: 80px;
+  margin-bottom: -50px;
+  color: white;
+}
+
 
 img.logo {
 	width: 150px;
@@ -65,174 +105,21 @@ img.logo {
 }
 
 .banner{
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-#contact, #track, #claim{
-    margin-right: 0px;
-
+.track{
+  width:250px;
 }
 
-#msform {
-    text-align: center;
-    position: relative;
-    margin-top: 20px;
-}
-
-#msform fieldset .form-card {
-    background: white;
-    border: 0 none;
-    border-radius: 10px;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-    padding: 50px;
-    box-sizing: border-box;
-    width: 94%;
-    margin: 0 3% 20px 3%;
-    position: relative
-}
-
-#msform fieldset {
-    background: white;
-    border: 0 none;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0;
-    padding-bottom: 20px;
-    position: relative
-}
-
-#msform fieldset:not(:first-of-type) {
-    display: none
-}
-
-#msform fieldset .form-card {
-    text-align: left;
-    color: black;
-}
-
-#msform input,
-#msform textarea {
-    padding: 0px 8px 4px 8px;
-    border: none;
-    border-radius: 0px;
-    margin-bottom: 25px;
-    margin-top: 2px;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    font-size: 16px;
-    letter-spacing: 1px
-}
-
-#msform input:focus,
-#msform textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: none;
-    font-weight: bold;
-    outline-width: 0
-}
-
-select.list-dt {
-    border: none;
-    outline: 0;
-    border-bottom: 1px solid #ccc;
-    padding: 2px 5px 3px 5px;
-    margin: 2px
-}
-
-select.list-dt:focus {
-    border-bottom: 2px solid skyblue
-}
-
-.card {
-    z-index: 0;
-    border: none;
-    border-radius: 0.5rem;
-    position: relative
-}
-
-.fs-title {
-    font-size: 25px;
-    color: #2C3E50;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-align: center
-}
-
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: lightgrey;
-    padding: 5px;
-}
-
-#progressbar .active {
-    color: #000000
-}
-
-#progressbar li {
-    list-style-type: none;
-    font-size: 12px;
-    width: 33.33%;
-    float: left;
-    position: relative
-}
-
-#progressbar #contact:before {
-    font-family: FontAwesome;
-    content: "\f007"
-}
-
-#progressbar #track:before {
-    font-family: FontAwesome;
-    content: "\f041"
-}
-
-#progressbar #claim:before {
-    font-family: FontAwesome;
-    content: "\f073"
-}
-
-#progressbar li:before {
-    width: 50px;
-    height: 50px;
-    line-height: 45px;
-    display: block;
-    font-size: 18px;
-    color: #ffffff;
-    background: lightgray;
-    border-radius: 50%;
-    margin: 0 auto 10px auto;
-    padding: 2px
-}
-
-#progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: lightgray;
-    position: absolute;
-    left: 0;
-    top: 25px;
-    z-index: -1
-}
-
-#progressbar li.active:before,
-#progressbar li.active:after {
-    background: red
+.banner-button{
+  text-align: end;
 }
 
 
-
-
-/*
- * FOOTER
- */
+/* FOOTER
+ -------------------------------------------------- */
  .website-footer {
   padding: 2.5rem 0;
   color: #727272;
@@ -240,52 +127,225 @@ select.list-dt:focus {
   background-color: #f9f9f9;
   border-top: .05rem solid #e5e5e5;
 }
+
 .website-footer p:last-child {
   margin-bottom: 0;
 }
 
+.col-12 img{
+  width: 40px;
+  height: 40px;
+}
   
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
-  @media (max-width: 100px) {
-    img.red-life-logo{
-      width: 310px;
-      height: 57px;
-      margin-left: 0px;
-    }
+/* RESPONSIVE CSS
+------------------------------------------------- */
+@media (max-width: 2000px) {
+  li{
+   margin-right: 30px;
   }
 
-  @media (max-width: 1500px) {
-    li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
-      margin-right: 25px;
-    }
+  .contact-details{
+    padding: 20px;
   }
 
-  @media (max-width: 390px) {
-    h1{
-        font-size: 80px;
-      }
-  
-    h6{
-        font-size: 50px;
-        margin-bottom: 5px;
-        margin-left: 0px;
-    }
-  
-    li.home-nav, li.donate-nav, li.request-nav, li.drives-nav, li.learn-nav{
-      margin-right: 0px;
-    }
-    
-    .banner{
-      padding: 25px;
-      text-align: center;
-    }
-
-    button{
-      margin-top: 10px;
-    }
-
-    .track{
-        width:200px;
-    }
+  .col-md-7{
+    padding-left: 50px;
+    padding-right: 50px;
   }
+}
+
+
+@media (max-width: 1100px) {
+  li{
+    margin-right: 10px;
+  }
+
+  #hanging-icons{
+    padding: 48px;
+  }
+}
+
+@media (max-width: 999px) {
+  .banner{
+    padding: 25px;
+    text-align: center;
+  }
+
+  .banner-button{
+    text-align: center;
+  }
+
+  .btn2-track{
+    margin-top: 10px;
+  }
+
+  .container{
+    max-width: 900px;
+  }
+
+  .container p {
+    font-size: smaller;
+  }
+
+  .track{
+    width:250px;
+  }
+
+  h1{
+    font-size: 130px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 60px;
+    margin-bottom: -40px;
+    margin-left: 0px;
+  }
+
+  .carousel-caption {
+    bottom: 7rem;
+  }
+}
+
+@media (max-width: 992px){
+  li{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 992px){
+  .navbar-collapse {
+    justify-content: end;
+  }
+}
+
+@media (max-width: 767px) {
+  .col-md-5{
+    padding: 50px;
+  }
+  
+  h1{
+    font-size: 100px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 50px;
+    margin-bottom: -40px;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 550px) {
+  img.red-life-logo{
+    width: 250px;
+  }
+
+  li{
+    margin-right: 0px;
+  }
+
+  .banner{
+    padding: 25px;
+    text-align: center;
+  }
+
+  .track{
+    width:250px;
+  }
+
+  #hanging-icons{
+    padding: 20px;
+  }
+
+  h1{
+    font-size: 80px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 50px;
+    margin-bottom: -30px;
+    margin-left: 0px;
+  }
+
+  .col-12 img{
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  img.red-life-logo{
+    width: 200px;
+  }
+
+  .col-md-5{
+    padding: 10px;
+    font-size: smaller;
+  }
+
+  h1{
+    font-size: 80px;
+    margin-top: 10px;
+  }
+
+  h6{
+    font-size: 50px;
+    margin-bottom: -30px;
+    margin-left: 0px;
+  }
+
+  h5{
+    font-size:medium;
+  }
+
+  .carousel-caption {
+    bottom: 8rem;
+  }
+}
+
+@media (max-width: 350px) {
+  img.red-life-logo{
+    width: 180px;
+  }
+
+  h1{
+    font-size: 50px;
+    margin-top: 20px;
+  }
+
+  h6{
+    font-size: 40px;
+    margin-bottom: -30px;
+    margin-left: 0px;
+  }
+
+  h5{
+    font-size: smaller;
+  }
+
+  .track{
+    width:180px;
+    font-size: 15px;
+  }
+
+  .col-md-7{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .col-md-5{
+    padding: 10px;
+    font-size: smaller;
+  }
+
+  h4{
+    font-size: medium;
+  }
+
+  .col-12 p{
+    font-size: smaller;
+  }
+}

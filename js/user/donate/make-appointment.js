@@ -39,6 +39,7 @@ function bindActionButtons(){
         $(this).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>"
             +"<span class='sr-only'>Loading...</span>");
         appointmentData.id_donor = CookieClass.getCookie(Appointment.ID_DONOR);
+        appointmentData.id_donation_drive = 0;
         appointmentData.appointment_type = Appointment.IN_HOUSE;
         appointmentData.appointment_location = "Dasmariñas Branch";
         appointmentData.appointment_date = selectedDonationDate;

@@ -5,7 +5,7 @@ body {
 /* HEADER
   -------------------------------------------------- */
   img.red-life-logo{
-    width: 320px;
+    margin-left: 20px;
     height: 67px;
     padding: 5px;
   }
@@ -16,31 +16,40 @@ body {
     padding: 5px;
   }
   
+  .profile{
+    border: none;
+    color: black;
+    text-decoration: none;
+    background: transparent;
+  }
+  
+  .navbar .navbar-toggler {
+    right: 1rem;
+  }
+  
+  .profile-dropdown{
+    width: 250px;
+  }
+
   span.profileName{
     margin-top: 10px;
     letter-spacing: 1px;
     color: black;
     font-size: 15px;
+    font-weight: bold;
   }
 
-  .dropdown-menu{
-    position: absolute;
-    inset: 0px 0px auto 0px;
-    margin: 0px;
-    transform: translate(128px, 58px);
-}
 
+/* BODY
+  -------------------------------------------------- */
 span.error-message{
     color: rgb(252, 1, 1);
 }
-/* BODY
-  -------------------------------------------------- */
 
 #msform {
     text-align: center;
     position: relative;
     margin-top: 20px;
-    
 }
 
 #msform fieldset .form-card {

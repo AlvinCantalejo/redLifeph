@@ -4,7 +4,7 @@ import User from "./../../model/User.model.js";
 import Appointment from "./../../model/Appointment.model.js";
 $(document).ready(function(){
 
-    //App.checkIfLoggedIn(userRole);
+    App.checkIfLoggedIn(userRole);
     App.handlePageRestore();
     bindActionButtons();
     renderProfileDetails();
@@ -12,7 +12,7 @@ $(document).ready(function(){
 });
 
 var userRole = User.USER;
-var selectedDonationDriveID = CookieClass.getCookie("id_drive");
+var selectedDonationDriveID = window.location.href.split('=')[1];
 var appointmentData={};
 var current_fs, next_fs, previous_fs; //fieldsets
 var currentFieldSetID; //fieldset id
@@ -20,6 +20,7 @@ var opacity;
 var selectedDonationDate;
 var selectedDonationTime;
 var availableSlot;
+var drive;
 
 function renderProfileDetails (){
     let firstName = CookieClass.getCookie(User.FIRST_NAME);
@@ -35,11 +36,13 @@ function bindActionButtons(){
         $(this).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>"
             +"<span class='sr-only'>Loading...</span>");
         appointmentData.id_donor = CookieClass.getCookie(Appointment.ID_DONOR);
-        appointmentData.appointment_type = Appointment.IN_HOUSE;
-        appointmentData.appointment_location = "Dasmariñas Branch";
-        appointmentData.appointment_date = selectedDonationDate;
-        appointmentData.appointment_time = selectedDonationTime.val();
-        appointmentData.slots = availableSlot;
+        appointmentData.appointment_type = Appointment.DONATION_DRIVE;
+        appointmentData.id_donation_drive = drive.id;
+        appointmentData.event_title = drive.event_title;
+        appointmentData.event_details = drive.event_details;
+        appointmentData.appointment_location = drive.event_location;
+        appointmentData.appointment_date = drive.event_date;
+        appointmentData.appointment_time = drive.event_time;
 
         addNewAppointment(appointmentData);
     });
@@ -146,10 +149,42 @@ function isValidated(currentFieldSetID){
     }
 }
 
+function addNewAppointment(appointment){
+    var apiURL = App.getApiUrl();
+    var endpoint = "user/add-appointment";
+    var api = apiURL + endpoint;
+    $.ajax({
+        url: api,
+        type: 'POST',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader(
+                'Koauthorization', 
+                CookieClass.getCookie(User.TOKEN)
+            );
+        },
+        data: appointment,                
+        success: function (data) { 
+            displayConfirmationModal("","success");
+            setTimeout(function () {
+                window.location.href = "./../../../module/user/drives/index.php";
+            }, 6000);
+        },
+        error: function (error) { 
+            displayConfirmationModal("","success");
+            setTimeout(function () {
+                window.location.href = "./../../../module/user/drives/index.php";
+            }, 6000);
+        }
+    });  
+}
+
 function getDriveDetails(id){
     var apiURL = App.getApiUrl();
     var endpoint = "user/donation-drive";
     var api = apiURL + endpoint;
+    var parameters ={
+        "id":id
+    };
     $.ajax({
         url: api,
         type: 'GET',
@@ -159,17 +194,28 @@ function getDriveDetails(id){
                 CookieClass.getCookie(User.TOKEN)
             );
         },
-        data: id,                
+        data: parameters,                
         success: function (data) { 
-            renderConfirmForm();
+            drive = data;
+            renderConfirmPage(data);
         },
         error: function (error) { 
-            displayConfirmationModal("", "failed");
-            
+            console.log(error);
         }
     });  
 }
 
+var errorMessage = $("#error-message");
+function renderConfirmPage(drive){
+    errorMessage.text("");
+    let dateTime = $("#card-date-time");
+    let eventTitle = $("#card-event-title");
+    let eventLocation = $("#donor-event-location");
+
+    dateTime.html("<em>" + drive.event_date + " | " + drive.event_time + "</em>");
+    eventTitle.text("Event: " + drive.event_title);
+    eventLocation.html("Venue: " + drive.event_location);
+}
 
 function displayConfirmationModal(reasons="", type){
     var confirmModal= $("#confirm-modal");

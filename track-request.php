@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="./res/img/favicon.svg">
+
     <!-- External Links -->
     <link rel="stylesheet" href="./res/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,7 +20,6 @@
     <script src="./res/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="./res/bootstrap/js/bootstrap.min.js"></script>    
 	  <script src="./res/icons/icons.js"></script>
-
 
     <title>Request | redLife.ph</title>
 
@@ -36,71 +37,68 @@
           font-size: 3.5rem;
         }
       }
+
+      img.footer-logo{
+        height:30px;
+      }
+
+      a img{
+        width:40px;
+        height:40px;
+      }
     </style>
   </head>
   <body>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+      <a href="index.php" class="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
+        <img src="./res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
+      </a>
+    </header>
     <main>
-      <div class="container-fluid">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-          <a href="index.php" class="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
-            <img src="./res/img/redLifePhLogo.svg" class="red-life-logo" alt="red-life-logo">
-          </a>
-        </header>
-      </div>
-
-      <div class="container mt-4 mb-4">
+      <div class="container mt-4">
         <div class="return">
-            <a href="request.php" class="nav-link px-2 mb-4 link-dark">
-                <i class="bi bi-arrow-left" style="font-size: 1rem;"></i>
-                Return to Request Home Page</a>
+          <a href="request.php" class="nav-link px-2 mb-4 link-dark">
+            <i class="bi bi-arrow-left" style="font-size: 1rem;"></i>
+            Back</a>
         </div>
-        <div class="bg-image">
-            <div class="d-flex flex-wrap align-content-center" style="background-color: rgba(0, 0, 0, 0.4); height: 70vh;">
-            <div class="container px-5 text-white">
-                <div class="text-center">
-                    <h3> We are all in this together. Philippine Red Cross extends its advocacy to help 
-                        people in-need for blood products.</h5> <br><br>
+        <div class="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./res/img/request-bg.jpg" class="photo" style="z-index: 0" alt="carousel-image">
+              <div class="color-overlay"></div>
+              <div class="carousel-caption text-center">
+                <h3> We are all in this together. Philippine Red Cross extends its advocacy to help 
+                    people in-need for blood products.</h5> <br><br>
 
-                    <div class="input-group input-group-lg mb-3">
-                        <input type="text" class="form-control rounded-3" placeholder="Enter release number">
-                        <button class="btn btn-danger rounded-3 btn-lg" type="button" name="track_request" id="track-request">Track Request</button>
-                    </div>
+                  <div class="input-group input-group-lg mb-3">
+                    <input type="text" class="form-control rounded-3" name="release_number" placeholder="Enter release number"
+                    id="release-number">
+                    <button class="btn btn-danger rounded-3 btn-lg" type="button"  id="track-request">Track Request</button>
                 </div>
+              </div>
             </div>
-            </div>
-        </div> <br>
+          </div> 
+        </div>
         <div class="card">
-            <div class="row card-body">
-                <div class="row">
-                    <h5 class="card-title">Blood Request Information</h5>
-                    <div class="col-6">
-                        <label for="donor-id">Tracking Number:</label>
-                        <input style="border: none; background-color: white;" type="text" id="tracking-number" name="tracking_number" placeholder="ABC123" disabled><br>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <label for="donor-id">Date of Request:</label> &nbsp;
-                    <input style="border: none; background-color: white;" type="text" id="request-status" name="request_status" placeholder="Display Status" disabled><br>
-
-                    <label for="donor-id">Requested Blood Type:</label> &nbsp;
-                    <input style="border: none; background-color: white;" type="text" id="request-status" name="request_status" placeholder="Blood Type" disabled><br>
-
-                    <label for="donor-id">Request Status:</label> &nbsp;
-                    <input style="border: none; background-color: white;" type="text" id="request-status" name="request_status" placeholder="Display Status" disabled>
-                </div>
-            </div>
+          <div class="row card-body">
+            <div class="row" id="request-result">
+              <h2 class="card-title">Input your release number.</h2>
+              <div id="result-area"></div>
+          </div>
         </div>  
       </div>
-
-
-      
-
-
-
+      </div>
     </main>
-    <?php
-    	include_once("./module/components/footer.php");
-    ?>
-    <script src="./js/user/request/index.js" type="module"></script>
+    <div class="container pt-5 fixed-bottom">
+      <footer class="d-flex flex-wrap justify-content-between align-content-center py-3 border-top">
+        <div class="col-md-4 d-flex">
+          <img src="./res/img/redLifePhLogo.svg" class="footer-logo" alt="red-life-logo">
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
+          <span class="mb-3 mb-md-0 text-muted align-self-center">&copy; 2022 redLife.ph</span>
+        </div>
+      </footer>
+    </div>
+    <script src="./js/track-request.js" type="module"></script>
   </body>
 </html>

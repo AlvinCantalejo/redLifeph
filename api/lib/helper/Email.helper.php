@@ -26,7 +26,7 @@ class EmailHelper extends EmailClass {
     var $EMAIL_FROM2 = "redLifeph";
 
     var $REGISTRATION_EMAIL_SUBJECT = "Thank you for registering to redLifeph! Your initiative saves life.";
-    var $APPOINTMENT_CONFIRMATION_EMAIL_SUBJECT = "Appointment is set Successfully! Your initiative saves life.";
+    var $APPOINTMENT_CONFIRMATION_EMAIL_SUBJECT = "Your initiative saves life.";
     
     var $REGISTRATION_EMAIL_BODY = "";
     var $APPOINTMENT_CONFIRMATION_EMAIL_BODY = "";
@@ -100,6 +100,9 @@ class EmailHelper extends EmailClass {
         switch($appointmentType){
             case "appointment":
                 $this->MAIL->Body = $this->emailClass->createEmailBody("appointment", $fullName, $appointmentDetails);
+                break;
+            case "drive-registration":
+                $this->MAIL->Body = $this->emailClass->createEmailBody("drive-registration", $fullName, $appointmentDetails);
                 break;
             case "reschedule-appointment":
                 $this->MAIL->Body = $this->emailClass->createEmailBody("reschedule-appointment", $fullName, $appointmentDetails);
