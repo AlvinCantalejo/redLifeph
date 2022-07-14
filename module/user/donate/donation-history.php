@@ -54,8 +54,8 @@
             <a class="dropdown-item px-0" href="manage-appointment.php">Manage Appointment</a>
             <a class="dropdown-item px-0" href="donation-history.php">Donation History</a>
             <a class="dropdown-item px-0" href="profile.php">Manage Profile</a>
-            <hr>
-            <a class="px-0 py-3" href="#">Logout</a>
+            <li class="m-0"><hr class="dropdown-divider my-3"></li>
+            <li class="m-0"><a class="dropdown-item" href="../../../logout.php">Logout</a></li>
           </div>
         </div>
       </div>
@@ -81,6 +81,7 @@
                         <tbody id="donation-history-table-body">
                         </tbody>
                     </table>
+                    <span class="donation-number"></span>
                 </div>
 
                 <!-- CONFIRMATION MODAL -->

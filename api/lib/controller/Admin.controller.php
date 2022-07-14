@@ -1,6 +1,7 @@
 <?php
 include_once(__DIR__ . "/../helper/DB.helper.php");
 include_once(__DIR__ . "/../helper/Session.helper.php");
+include_once(__DIR__ . "/../helper/Email.helper.php");
 include_once(__DIR__ . "/../helper/Param.helper.php");
 include_once(__DIR__ . "/../helper/Token.helper.php");
 include_once(__DIR__ . "/../model/User.model.php");
@@ -16,6 +17,7 @@ class AdminController {
 	var $string = "";
     var $params = [];
     var $sessionHelper;
+    var $emailHelper;
     var $userModel;
     var $appointmentModel;
     var $donationModel;
@@ -28,6 +30,7 @@ class AdminController {
     public function __construct ($params) {
         
         $this->sessionHelper = new SessionHelper();  
+        $this->emailHelper = new EmailHelper();  
         $this->params = $params;//$_POST, $_GET
 
         //Import models here eg //
@@ -38,6 +41,24 @@ class AdminController {
         $this->driveModel = new Drive();
     }
 
+    public function remindDonors(){
+        $dataset = $this->donationModel->remindDonors();
+
+        $data = new Message("Reminders not sent");
+        if ($dataset->num_rows > 0) {
+            unset($data);
+            $data = [];
+            while ($row = mysqli_fetch_assoc($dataset)) {
+                $email = $row ['email'];
+                $fullName = $row ['first_name']. " " . $row['last_name'];
+                $this->emailHelper->sendAppointmentNotification("reminder", $email, $fullName, "");
+                sleep(5);
+            }
+            $data = new Message("Reminders sent");
+            return array($data, 200);
+        }
+        return array($data, 603);
+    }
     //============================================DONATIONS========================================================
     /**
 	    @name: "admin/add-new-donor"

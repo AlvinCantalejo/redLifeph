@@ -4,7 +4,7 @@
 */
 
 include_once(__DIR__ . "/helper/Session.helper.php");
-include_once(__DIR__ . "/helper/APi.helper.php");
+include_once(__DIR__ . "/helper/API.helper.php");
 include_once(__DIR__ . "/model/Message.model.php");
 include_once(__DIR__ . "/model/User.model.php");
 include_once(__DIR__ . "/controller/User.controller.php");
@@ -278,7 +278,11 @@ class RouterAPI extends APIHelper {
                 $data = $return[0];
                 $code = $return[1];
             }
-            
+            else if($action == "remind-donors"){
+                $return = $admin->remindDonors();
+                $data = $return[0];
+                $code = $return[1];
+            }
             else if($action == "update-donation"){
                 $return = $admin->updateDonation();
                 $data = $return[0];

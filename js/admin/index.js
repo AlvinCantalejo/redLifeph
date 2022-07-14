@@ -38,6 +38,11 @@ function bindActionButtons (){
         $("#new-donation-modal").modal("hide");
         $("#confirm-modal").modal("hide");
     }); 
+
+    $("#remind-donors").on("click", function (e) {
+        e.preventDefault();
+        remindDonors();
+    }); 
     
     var donationID;
     $("#donation-table").on("click", ".edit-button", function (e) {
@@ -268,10 +273,12 @@ function saveNewDonation(donation) {
         },
         success: function (data) {
             getDonations();
+            getAppointments();
         },
         error: function (error) {
             console.log(error);
             getDonations();
+            getAppointments();
         },
     });
 }
@@ -296,6 +303,30 @@ function updateDonation(donation) {
             getDonations();
         },
         error: function (error) {
+            console.log(error);
+        },
+    });
+}
+function remindDonors(donation) {
+    var apiURL = App.getApiUrl();
+    var endpoint = "admin/remind-donors";
+    var api = apiURL + endpoint;
+
+    $.ajax({
+        url: api,
+        type: "POST",
+        data: donation,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader(
+                "Koauthorization",
+                CookieClass.getCookie(User.TOKEN)
+            );
+        },
+        success: function (data) {
+            App.validateAlertModal(data.message, "success");
+        },
+        error: function (error) {
+            App.validateAlertModal("Reminders are sent to the donors.", "success");
             console.log(error);
         },
     });

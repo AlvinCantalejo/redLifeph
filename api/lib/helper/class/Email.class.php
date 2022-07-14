@@ -8,6 +8,7 @@ class EmailClass{
     var $EMAIL_TYPE_DRIVE_REGISTRATION = "drive-registration";
     var $EMAIL_TYPE_RESCHEDULE_APPOINTMENT = "reschedule-appointment";
     var $EMAIL_TYPE_CANCEL_APPOINTMENT = "cancel-appointment";
+    var $EMAIL_TYPE_REMINDER = "reminder";
     
     
     function __construct () {
@@ -58,7 +59,6 @@ class EmailClass{
                 ." <strong>Donation Center:</strong> " . $AdditionalDetails['appointment_location']."<br>"
                 ." <strong>Address:</strong> Philippine Red Cross - Cavite Chapter Dasmariñas Branch, Emilio Aguinaldo Highway, Dasmarinas City, Cavite, Philippines<br><br>"
                 ."Learn more about blood donation, do's and dont's and many more <a href='https://redlifeph.herokuapp.com/learn.php'>here</a>. <br>"
-
                 ."Thank you and see you there, life saver!"
                 ."<br><strong>-redLifeph</strong>";
                 break;
@@ -71,6 +71,14 @@ class EmailClass{
                 ." <strong>Time: </strong> " . $AdditionalDetails['appointment_time']."<br>"
                 ." <strong>Donation Center:</strong> " . $AdditionalDetails['appointment_location']."<br>"
                 ." <strong>Address:</strong> Philippine Red Cross - Cavite Chapter Dasmariñas Branch, Emilio Aguinaldo Highway, Dasmarinas City, Cavite, Philippines<br><br>"
+                ."Learn more about blood donation, do's and dont's and many more <a href='https://redlifeph.herokuapp.com/learn.php'>here</a>. <br>"
+                ."Thank you for your good deeds, life saver!"
+                ."<br><strong>-redLifeph</strong>";
+                break;
+            case $this->EMAIL_TYPE_REMINDER:
+                return "<h3>Greetings of Peace and Humanity, <strong>" . $Name ."</strong>!</h3><br>"
+                ."We hope that you are in the good health! <br>"
+                ."We would like to let you know that you can donate blood again.<br><br>"
                 ."Learn more about blood donation, do's and dont's and many more <a href='https://redlifeph.herokuapp.com/learn.php'>here</a>. <br>"
                 ."Thank you for your good deeds, life saver!"
                 ."<br><strong>-redLifeph</strong>";

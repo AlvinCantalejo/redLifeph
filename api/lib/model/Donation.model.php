@@ -24,6 +24,45 @@ class Donation extends DBHelper{
         parent::__construct();
     }
 
+    public function remindDonors(){
+        $sql = "SELECT r_user.*, r_donor.id AS id_donor 
+                FROM r_user
+                LEFT JOIN r_donor
+                    ON r_user.id = r_donor.id_user
+                LEFT JOIN r_donation
+                    ON r_donation.id_donor = r_donor.id
+                LEFT JOIN r_reminder
+                    ON r_reminder.id_donor = r_donor.id
+                WHERE r_donation.donation_date <= NOW() - INTERVAL 3 MONTH
+                    AND r_user.email <> ''
+                    AND r_reminder.is_reminded = 0";
+        $statement = $this->db->prepare($sql);
+        $statement->execute();
+        $dataset = $statement->get_result();
+        $this->userReminded();
+        return $dataset;
+    }
+
+    public function userReminded(){
+        $sql = "UPDATE r_reminder
+                    SET is_reminded = 1
+                WHERE is_reminded = 0";
+        
+        $statement = $this->db->prepare($sql);
+        $statement = $this->db->prepare($sql);
+        $statement->execute();
+        return;
+    }
+    public function addReminder( $idDonor){
+        $sql = "INSERT INTO r_reminder
+                    (id_donor)
+                    VALUES(?)";
+        
+        $statement = $this->db->prepare($sql);
+        $statement->bind_param('s',  $idDonor);
+        $executed = $statement->execute();
+        return $executed;
+    }
     public function addNewDonation( $id,
                                     $idDonor,
                                     $donationType,
@@ -47,6 +86,7 @@ class Donation extends DBHelper{
                                             $prcPersonnel,
                                             $bloodProductNumber);
         $executed = $statement->execute();
+        $this->addReminder($idDonor);
         return $executed;
     }
 
@@ -128,20 +168,22 @@ class Donation extends DBHelper{
 
     public function getDonations( $idDonor){
         $sql = "SELECT r_donation.*, 
-                r_user.first_name,
-                r_user.last_name,
-                r_user.phone_number,
-                r_donor.gender,
-                r_donor.birth_date,
-                r_donor.blood_type 
-                FROM r_donation
-                LEFT JOIN r_donor
-                    ON r_donation.id_donor = r_donor.id
-                LEFT JOIN r_user
-                    ON r_donor.id_user = r_user.id
-                WHERE r_donation.donation_status <> 'Deleted' 
-                    AND r_donor.id = ?
-                ORDER BY r_donation.donation_date ASC";
+                        COUNT(DISTINCT IF ( r_donation.donation_status = 'Successful',
+                                            r_donation.donation_status, NULL))  AS donation_count,
+                        r_user.first_name,
+                        r_user.last_name,
+                        r_user.phone_number,
+                        r_donor.gender,
+                        r_donor.birth_date,
+                        r_donor.blood_type 
+                        FROM r_donation
+                        LEFT JOIN r_donor
+                            ON r_donation.id_donor = r_donor.id
+                        LEFT JOIN r_user
+                            ON r_donor.id_user = r_user.id
+                        WHERE r_donation.donation_status <> 'Deleted' 
+                            AND r_donor.id = ?
+                        ORDER BY r_donation.donation_date ASC";
         
         $statement = $this->db->prepare($sql);
         $statement->bind_param('s', $idDonor);

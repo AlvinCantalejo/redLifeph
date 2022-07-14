@@ -14,10 +14,7 @@ function bindActionButtons(){
     
     $(".btn-register").on("click", function(e){
         e.preventDefault();
-        $(this).text("");
-        $(this).prop("disabled", true);
-        $(this).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>"
-            +"<span class='sr-only'>Loading...</span>");
+        
 
         var form = $("form#registration-form");
         var data = form.serialize().split("&");
@@ -85,6 +82,11 @@ function validateFormData(formData) {
     }
     else if (!phoneNumber) {
         error = "Please input valid phone number.";
+    }else{
+        $(".btn-register").text("");
+        $(".btn-register").prop("disabled", true);
+        $(".btn-register").html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>"
+            +"<span class='sr-only'>Loading...</span>");
     }
 
     return error;

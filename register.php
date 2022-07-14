@@ -88,9 +88,8 @@
 							<label for="gender">Gender </label> 
 							<select id="gender" name="gender" class="form-select">
 								<option selected disabled>Select</option>
-								<option>Male</option>
-								<option>Female</option>
-								<option>Prefer not to say</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
 							</select>
 						</div>
 

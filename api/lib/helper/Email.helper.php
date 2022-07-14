@@ -110,6 +110,9 @@ class EmailHelper extends EmailClass {
             case "cancel-appointment":
                 $this->MAIL->Body = $this->emailClass->createEmailBody("cancel-appointment", $fullName, $appointmentDetails);
                 break;
+            case "reminder":
+                $this->MAIL->Body = $this->emailClass->createEmailBody("reminder", $fullName, $appointmentDetails);
+                break;
         }
         
 

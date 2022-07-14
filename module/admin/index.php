@@ -117,7 +117,8 @@
           <div class="tab-content">
             <!-- 1st Tab -->
             <div class="tab-pane fade active show" id="donations">
-              <h1 class="h2">Manage All Donations</h1><br>
+              <h1 class="h2">Manage All Donations</h1>
+              
 
               <div class="row">
                 <!-- Trigger/Open The Modal -->
@@ -165,7 +166,8 @@
 
               <!-- CLEAR FILTER BUTTON -->
               <div class="m-0 pe-2 pt-2 text-end">
-                <a href="" id="donation-clear-filter"><span>Clear Filter</span></a>
+                <a href="" id="donation-clear-filter"><span>Clear Filter</span></a><br>
+                <a href="" id="remind-donors"><span>Remind Donors</span></a>
               </div><br>
 
               <div class="row">

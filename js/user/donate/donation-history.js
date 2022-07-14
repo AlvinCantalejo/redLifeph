@@ -74,6 +74,7 @@ function displayTable(donations) {
             let donationDate = App.stringifyDate(donation.donation_date);
             let bloodProductNumber = donation.blood_product_number;
             let donationStatus = donation.donation_status;
+            let numOfSuccessfulDonations = donation.donation_count;
 
             donationTableRow += "<tr>";
             donationTableRow += TableHelper.addData(id);
@@ -83,6 +84,8 @@ function displayTable(donations) {
             donationTableRow += TableHelper.addData(donationStatus);
             
             donationTableRow += "</tr>";
+            $(".donation-number").html("<b>Total Successful Donations: </b><em>" + numOfSuccessfulDonations + "</em>");
         }
+        
     }donationTableBody.html(donationTableRow);
 }
